@@ -25,7 +25,7 @@ let routes = require('./routes/');//require in routes
 
 //session persistence injection with express session
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'feles cattus',
     resave: true,
     saveUninitialized: true
 })); // session secret
