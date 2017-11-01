@@ -83,7 +83,7 @@ const LoginStrategy = new Strategy(
     passReqToCallback: true // allows us to pass back the entire request to the callback
   },
   (req, email, password, done) => {
-    User = req.app.get('models').User;
+    User = req.app.get('models').user;//capitalized before -- but model it's looking for has lower case
     const isValidPassword = (userpass, password) => {
       // hashes the passed-in password and then compares it to the hashed password fetched from the db
       return bCrypt.compareSync(password, userpass);
