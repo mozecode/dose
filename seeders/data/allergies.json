@@ -1,0 +1,24 @@
+{
+    "allergies": [
+        {
+            "drug_name": "penicillin",
+            "patient_id":"1"
+        },
+        {
+            "drug_name": "sulfa drugs",
+            "patient_id": "2"
+        },
+        {
+            "drug_name": "opioids",
+            "patient_id": "3"
+        },
+        {
+            "drug_name": "phenothiazines",
+            "patient_id": "1"
+        },
+        {
+            "drug_name": "NSAIDs",
+            "patient_id": "2"
+        }
+    ]
+}
