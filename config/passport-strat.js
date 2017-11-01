@@ -26,7 +26,7 @@ const RegistrationStrategy = new Strategy(
   // arg2 callback, handle storing a user's details.
   (req, email, password, done) => {
     console.log('local strat callback: password', email);
-    User = req.app.get('models').User;
+    User = req.app.get('models').user;//capitalized before
 
     // add our hashed password generating function inside the callback function
     const generateHash = (password) => {
@@ -50,10 +50,12 @@ const RegistrationStrategy = new Strategy(
             // values come from the req.body, added by body-parser when register form request is submitted
             {
               email,
-              password: userPassword,
               username: req.body.username,
+              password: userPassword,
               first_name: req.body.first_name,
-              last_name:  req.body.last_name
+              last_name:  req.body.last_name,
+              phone: req.body.phone
+
             };
           // create() is a Sequelize method
           User.create(data).then( (newUser, created) => {
