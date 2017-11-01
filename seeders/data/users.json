@@ -4,35 +4,35 @@
             "first_name": "Rickie",
             "last_name": "Irons",
             "email": "mox@gmail.com",
-            "password":"stringofnonsense",
+            "password":"$2a$08$sf51N9pzKsV8waCimw1y.OOYDG79QD16px1Dk8AxjQgip5KVJ0aZW",
             "phone":"615-866-8619"
         },
         {
             "first_name": "Emma",
             "last_name": "Blakely",
             "email": "moxie@gmail.com",
-            "password": "12345",
+            "password": "$2a$08$sf51N9pzKsV8waCimw1y.OOYDG79QD16px1Dk8AxjQgip5KVJ0aZW",
             "phone": "615-946-1494"
         },
         {
             "first_name": "Santa",
             "last_name": "Claus",
             "email": "santa@gmail.com",
-            "password": "helloworld",
+            "password": "$2a$08$sf51N9pzKsV8waCimw1y.OOYDG79QD16px1Dk8AxjQgip5KVJ0aZW",
             "phone": "615-946-2672"
         },
         {
             "first_name": "Maggie",
             "last_name": "Silver",
             "email": "maggie@gmail.com",
-            "password": "noderocks",
+            "password": "$2a$08$sf51N9pzKsV8waCimw1y.OOYDG79QD16px1Dk8AxjQgip5KVJ0aZW",
             "phone": "615-946-1494"
         },
         {
             "first_name": "Leah",
             "last_name": "Irons",
             "email": "leah@gmail.com",
-            "password": "puppypower",
+            "password": "$2a$08$sf51N9pzKsV8waCimw1y.OOYDG79QD16px1Dk8AxjQgip5KVJ0aZW",
             "phone": "615-866-8619"
         }
     ]
