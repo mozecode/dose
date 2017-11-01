@@ -1,6 +1,6 @@
 'use strict';
 
-//getUserDetails
+//getUserDetails for my account link in navigation
 
 module.exports.getUserDetails=(req, res, next)=>{
     const { user, allergy, prescription } = req.app.get('models');
