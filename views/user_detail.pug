@@ -1,0 +1,10 @@
+extends index.pug
+
+block content
+    ul #{person.first_name}'s Allergies
+        each all in allergy
+            li #{all.dataValues.drug_name}
+    br
+    ul #{person.first_name}'s Prescriptions
+        each script in prescription
+            li #{script.dataValues.script_name}

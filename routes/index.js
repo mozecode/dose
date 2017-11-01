@@ -9,6 +9,7 @@ router.get('/', (req, res, next) => {
 
 // pipe all other requests through the route modules
 router.use(require('./authRoute'));
+router.use(require('./userRoute'));
 
 // router.use(require('./fooRoute')); //require in all the routes here from the routes files
 
