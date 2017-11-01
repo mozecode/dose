@@ -2,6 +2,14 @@ extends index.pug
 
 block content
     a(href="/welcome") Back to Main Menu
+    h2 Account Details:
+
+    p Name:#{person.first_name} #{person.last_name}
+
+    p Email:#{person.email}
+
+    p Mobile Phone Number:#{person.phone}
+    br
     ul #{person.first_name}'s Allergies:
         each all in allergy
             li #{all.dataValues.drug_name}
