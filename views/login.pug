@@ -1,0 +1,11 @@
+extends index.pug
+
+block content
+  h1 Login
+  if message
+    h2= message
+
+  form(action="/login", method="post")
+    input(type="email" placeholder="email" name="email")
+    input(type="password" placeholder="password" name="password")
+    button(type="submit") login

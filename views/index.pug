@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Dose
+  body
+    include partials/nav.pug
+    h1 Dose
+    //- h2 #{globalWow}
+
+  block content
+    button#showLogin login
+    button#showRegister register
+
+    script
+      include ../client/client.js
+    //-   include the click event js for the buttons
