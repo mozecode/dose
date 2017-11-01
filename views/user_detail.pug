@@ -1,6 +1,7 @@
 extends index.pug
 
 block content
+    a(href="/welcome") Back to Main Menu
     ul #{person.first_name}'s Allergies:
         each all in allergy
             li #{all.dataValues.drug_name}

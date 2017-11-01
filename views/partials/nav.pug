@@ -1,4 +1,5 @@
 if session.passport
   span #{session.passport.user.username}
   form(method="POST")
-    button(type="submit" formaction="/logout") logout
+    a(href="/user/"+session.passport.user.id) My Account
+    button(type="submit" formaction="/logout") Log Out

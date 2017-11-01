@@ -16,7 +16,7 @@ block content
       a(href="/prescriptions/update")
         h3 Update a Prescription
     .col-xs-6.col-sm-6.col-md-6.col-lg-3
-      a(href="/prescriptions")
+      a(href="/prescriptions/user/"+session.passport.user.id)
         h3 See a List of my Prescriptions
     .col-xs-6.col-sm-6.col-md-6.col-lg-3
       a(href="/prescriptions/reminders")
