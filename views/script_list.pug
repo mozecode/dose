@@ -1,6 +1,7 @@
 extends index.pug
 
 block content
+    a(href="/welcome") Back to Main Menu
     if allergy
         ul #{person.first_name}'s Allergies:
             each all in allergy
