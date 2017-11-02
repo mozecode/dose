@@ -1,0 +1,35 @@
+extends index.pug
+
+block content
+    if allergy
+        ul #{person.first_name}'s Allergies:
+            each all in allergy
+                li #{all.dataValues.drug_name}
+        br
+
+    ul #{person.first_name}'s Prescriptions:
+        each script in prescription
+            if script.dataValues.frequency1!=null
+                h3 At #{script.dataValues.frequency1}, please take:
+                li #{script.dataValues.dose} of your #{script.dataValues.script_name}
+            br
+            if script.dataValues.frequency2!=null
+                h3 At #{script.dataValues.frequency2}, please take:
+                li #{script.dataValues.dose} of your #{script.dataValues.script_name}
+            br
+            if script.dataValues.frequency3!=null
+                h3 At #{script.dataValues.frequency3}, please take:
+                li #{script.dataValues.dose} of your #{script.dataValues.script_name}
+            br
+            if script.dataValues.frequency4!=null
+                h3 At #{script.dataValues.frequency4}, please take:
+                li #{script.dataValues.dose} of your #{script.dataValues.script_name}
+            br
+            if script.dataValues.frequency5!=null
+                h3 At #{script.dataValues.frequency5}, please take:
+                li #{script.dataValues.dose} of your #{script.dataValues.script_name}
+            br
+            if script.dataValues.frequency6!=null
+                h3 At #{script.dataValues.frequency6}, please take:
+                li #{script.dataValues.dose} of your #{script.dataValues.script_name}
+            br

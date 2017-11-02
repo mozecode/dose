@@ -26,7 +26,6 @@ module.exports.getUserDetails=(req, res, next)=>{
         });
 };
 
-//getUserDetailsByTime?
 
 //updateUser
 
