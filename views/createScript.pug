@@ -4,25 +4,34 @@ block content
     a(href="/welcome") Back to Main Menu
     div(class="addScript")
         div(class="")
-            h2 Please look on your prescription bottle for all of the following information:
-            form(method="POST",action='/prescriptions')
-            input(type="text", placeholder="Medication Name and Strength" name="script_name", required=true)
-            br
-            input(type="number", name="dose", placeholder="Number of pills you take for one dose:" required=true)
-            br
-            h3 How often are you supposed to take each dose?
-            select(name="frequency" id="frequencyDropdown")
-                option(value="" disabled) Select:
-                option(id="1morning" data-value1="07:00:00 or 7AM" data-value2=null data-value3=null data-value4=null data-value5=null data-value6=null ) Once a day in the morning
-                option(id="1bedtime" data-value1=null data-value2=null data-value3=null data-value4=null data-value5=null data-value6="23:00:00 or 11PM") Once a day at bedtime
-                option(id="2x" data-value1="07:00:00 or 7AM" data-value2=null data-value3=null data-value4=null data-value5=null data-value6="23:00:00 or 11PM") Two times a day
-                option(id="3x" data-value1="07:00:00 or 7AM" data-value2= null data-value3=null data-value4="16:00:00 or 4PM" data-value5=null data-value6="23:00:00 or 11PM") Three times a day
-                option(id="4x" data-value1="07:00:00 or 7AM" data-value2=null data-value3="11:00:00 or 11AM" data-value4="18:00:00 or 6PM" data-value5=null data-value6="23:00:00 or 11PM") 4 times a day
-                option(id="6x" data-value1="06:00:00 or 6AM" data-value2="10:00:00 or 10AM" data-value3="14:00:00 or 2PM" data-value4="18:00:00 or 6PM" data-value5="22:00:00 or 10PM" data-value6="02:00:00 or 2AM") 6 times a day
-            input(type="date", name="exp_date", placeholder="Expiration Date of Medication" required=true)
-            br
-            input(type="date", name="date_entered", placeholder="Today's Date" required=true)
-            input(type="text", placeholder="Your Doctor's Name:" name="doctor_name", required=true)
-            input(type="text", placeholder="Your Pharmacy's Name" name="pharmacy_name", required=true)
-            input(type="tel", placeholder="Your Pharmacy's Phone Number" name="pharmacy_phone", required=true)
-            button(type="submit" id="submitScript" class="btn btn-secondary submitScript" style="cursor: pointer;") Submit
+            h2 Please look on your prescription bottle for the following information:
+            form(method="POST", action='/prescriptions')
+                input(type="text", placeholder="Drug Name and Strength:" name="script_name", required=true)
+                br
+                input(type="number", name="dose", placeholder="Number of pills you take for one dose:" required=true)
+                br
+                h3 How often are you supposed to take each dose?
+                select(name="frequency" id="frequencyDropdown")
+                    option(value="" disabled) Select:
+                    option(id="1morning" ) Once a day in the morning (7:00 AM)
+                    option(id="1bedtime") Once a day at bedtime (11:00 PM)
+                    option(id="2x") Two times a day(7:00 AM, 11:00 PM)
+                    option(id="3x") Three times a day (7:00 AM, 4:00 PM, 11:00 PM)
+                    option(id="4x") Four times a day (7:00 AM, 11:00 AM, 6:00 PM, 11:00 PM)
+                    option(id="6x") Six times a day (6:00 AM, 10:00 AM, 2:00 PM, 6:00 PM, 10:00 PM, 2:00 AM)
+                br
+                label(for="exp_date") Expiration Date of Medication:
+                br
+                input(type="date", name="exp_date", required=true)
+                br
+                label(for="date_entered") Today's Date:
+                br
+                input(type="date", name="date_entered", required=true)
+                br
+                input(type="text", placeholder="Your Doctor's Name:" name="doctor_name", required=true)
+                br
+                input(type="text", placeholder="Pharmacy Name:" name="pharmacy_name", required=true)
+                br
+                input(type="tel", placeholder="Pharmacy Phone:" name="pharmacy_phone", required=true)
+                br
+                button(type="submit" id="submitScript" class="btn btn-secondary submitScript" style="cursor: pointer;") Submit

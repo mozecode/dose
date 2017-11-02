@@ -28,7 +28,6 @@ module.exports.getAllUserScripts = (req, res, next) => {
             // //can I just do this in the pug?  nested for loop here and pass it in through the object?
             //     let time1 = moment(person.prescriptions[i].dataValues.frequency1, ["HH:mm:ss"]).format("h:mm A");
             //     console.log(time1);
-                
             //     let time2 = moment(person.prescriptions[i].dataValues.frequency2, ["HH:mm:ss"]).format("h:mm A");
             //     console.log(time2);
 
@@ -57,8 +56,81 @@ module.exports.getAllUserScripts = (req, res, next) => {
 };
 
 //posts a new prescription to the database
-// module.exports.postScript=()=>{
+module.exports.postScript=(req, res, next)=>{
+    console.log("hello from postScript");
+    const { prescription, user } = req.app.get('models');
+    var regExp = /\(([^)]+)\)/;//capture all items between parentheses (idea from https://stackoverflow.com/questions/17779744/regular-expression-to-get-a-string-between-parentheses-in-javascript )
+    var dates = regExp.exec(req.body.frequency);
+    //split it at commas into an array & flip into values based on array length.
+    let dateArray= dates[1].split(',');
 
-// }
+    let value1 = null;
+    let value2 = null;
+    let value3 = null;
+    let value4 = null;
+    let value5 = null;
+    let value6 = null;
+    //default values are null unless I reassign them below.
+
+
+    if (dateArray.length === 1){
+        //if the array has 1 value:match the time based on whether it's morning or evening
+        if(dateArray[0] =='7:00 AM'){
+            value1= dateArray[0]
+        }else if(dateArray[0]=='11:00 PM'){
+            value6= dateArray[0];
+        }
+
+    }else if (dateArray.length === 2){
+        //if the array has 2 values: assign dates value 1 and value 6 ex.  value1 = dateArray[0]
+        value1= dateArray[0];
+        value6= dateArray[1];
+    }else if (dateArray.length === 3){
+        //if the array has 3 values, assign to 1, 3, 6
+        value1 = dateArray[0];
+        value3 = dateArray[1];
+        value6= dateArray[2];
+    } else if (dateArray.length === 4){
+        //if 4 values: assign to 1,3, 4, 6
+        value1 = dateArray[0];
+        value3 = dateArray[1];
+        value4= dateArray[2];
+        value6 = dateArray[3];
+    }else if (dateArray.length === 6){
+        //if 6 values: assign to corresponding value
+        value1= dateArray[0];
+        value2= dateArray[1];
+        value3= dateArray[2];
+        value4= dateArray[3];
+        value5= dateArray[4];
+        value6= dateArray[5];
+    }
+
+    prescription.create({
+        script_name: req.body.script_name,
+        dose: req.body.dose,
+        frequency1: value1,
+        frequency2: value2,
+        frequency3: value3,
+        frequency4: value4,
+        frequency5: value5,
+        frequency6: value6,
+        exp_date: req.body.exp_date,
+        date_entered:req.body.date_entered,
+        patient_id: req.session.passport.user.id,
+        doctor_name: req.body.doctor_name,
+        pharmacy_name: req.body.pharmacy_name,
+        pharmacy_phone: req.body.pharmacy_phone,
+        createdAt: null,
+        updatedAt: null
+    })
+        .then((result) => {
+            res.status(200).redirect('/prescriptions/user/'+req.session.passport.user.id);
+        })
+        .catch((err) => {
+            res.status(500).json(err)
+            console.log(err);
+        })
+}
 
 
