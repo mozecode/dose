@@ -7,7 +7,6 @@
 var moment = require('moment');
 
 module.exports.renderCreateScriptForm = (req, res, next) => {
-    console.log("hello from renderCreateScriptForm")
     res.render('createScript', {});
 }
 //organizes a user's prescriptions by time to take:
@@ -131,6 +130,6 @@ module.exports.postScript=(req, res, next)=>{
             res.status(500).json(err)
             console.log(err);
         })
-}
+};
 
 

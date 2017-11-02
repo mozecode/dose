@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 router.use(require('./authRoute'));
 router.use(require('./userRoute'));
 router.use(require('./prescriptionRoute')); //keep commented out until ready to test
-
+router.use(require('./allergyRoute'));
 // router.use(require('./fooRoute')); //require in all the routes here from the routes files
 
 module.exports = router;

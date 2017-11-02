@@ -2,4 +2,5 @@ if session.passport
   span #{session.passport.user.username}
   form(method="POST")
     a(href="/user/"+session.passport.user.id) My Account
+    a(href="/allergies/create") Add Allergies
     button(type="submit" formaction="/logout") Log Out
