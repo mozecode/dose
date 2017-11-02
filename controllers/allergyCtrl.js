@@ -23,7 +23,7 @@ module.exports.postAllergy = (req, res, next) => {
         updatedAt: null
     })
     .then((result) => {
-        res.render('createAllergy', {messages:req.flash('Successfully Added.  Would you like to add another?')});
+        res.render('createAllergy', {messages:'Successfully Added.  Would you like to add another?'});
     })
     .catch((err) => {
         res.status(500).json(err)

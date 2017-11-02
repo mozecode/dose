@@ -123,13 +123,13 @@ module.exports.postScript=(req, res, next)=>{
         createdAt: null,
         updatedAt: null
     })
-        .then((result) => {
-            res.status(200).redirect('/prescriptions/user/'+req.session.passport.user.id);
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-            console.log(err);
-        })
+    .then((result) => {
+        res.status(200).redirect('/prescriptions/user/'+req.session.passport.user.id);
+    })
+    .catch((err) => {
+        res.status(500).json(err)
+        console.log(err);
+    })
 };
 
 

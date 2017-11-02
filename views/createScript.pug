@@ -2,9 +2,11 @@ extends index.pug
 
 block content
     a(href="/welcome") Back to Main Menu
+    if messages && messages.length
+        h2 #{messages}
     div(class="addScript")
         div(class="")
-            h2 Please look on your prescription bottle for the following information:
+            h3 Please look on your prescription bottle for the following information:
             form(method="POST", action='/prescriptions')
                 input(type="text", placeholder="Drug Name and Strength:" name="script_name", required=true)
                 br
