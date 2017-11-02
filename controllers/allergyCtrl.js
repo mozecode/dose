@@ -1,6 +1,6 @@
 'use strict';
 
-//getUserAllergies (use to protect against duplications)
+//getUserAllergies 
 
 
 //renderCreateAllergyForm
@@ -15,6 +15,7 @@ module.exports.postAllergy = (req, res, next) => {
 
     //put in duplication protection with a get
     const { allergy } = req.app.get('models');
+    var flash = req.flash()
     allergy.create({
         drug_name: req.body.drug_name,
         patient_id:req.session.passport.user.id,
@@ -22,7 +23,7 @@ module.exports.postAllergy = (req, res, next) => {
         updatedAt: null
     })
     .then((result) => {
-        res.render('createAllergy', {messages: req.flash('Successfully Added.  Would you like to add another?')});
+        res.render('createAllergy', {messages:req.flash('Successfully Added.  Would you like to add another?')});
     })
     .catch((err) => {
         res.status(500).json(err)
