@@ -4,10 +4,11 @@ html
     title Dose
   body
     include partials/nav.pug
-    h1 Dose
     //- h2 #{globalWow}
 
   block content
+    if !session.passport
+      include partials/welcomeMsg.pug
     button#showLogin login
     button#showRegister register
 

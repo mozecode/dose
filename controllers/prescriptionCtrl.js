@@ -1,15 +1,11 @@
 'use strict';
-// router.get('/prescriptions/user/:id', getAllUserScripts);
-// router.get('/prescription/:id', getScriptDetails);
-// router.post('/prescriptions', postScript);
-// router.post('/prescriptions/create', renderCreateScriptForm)
-// router.put('/prescription/:id', updateScript);
 var moment = require('moment');
 
 module.exports.renderCreateScriptForm = (req, res, next) => {
     res.render('createScript', {});
 }
-//organizes a user's prescriptions by time to take:
+
+//gets all of a user's prescriptions
 module.exports.getAllUserScripts = (req, res, next) => {
     const { user, allergy, prescription } = req.app.get('models');
     user.findAll(
@@ -68,7 +64,6 @@ module.exports.getScripts=(req, res, next)=>{   //get all scripts to render as c
         .then((oneuser) => {
             console.log("What do we get from getscripts oneuser?", oneuser)
             let person = oneuser[0].dataValues
-            console.log("person in getscripts?", person)
             res.render('updateList', {
                 prescription: person.prescriptions
             });
@@ -82,14 +77,16 @@ module.exports.getScriptDetails=(req, res, next)=>{
     //find prescription by id
     const { prescription } = req.app.get('models');
     prescription.findById(parseInt(req.params.id), { raw: true })
-    .then((script)=>{
-        console.log("script info?", script)
+    .then((script)=>{//why does putting anything else here, even a console log break it?
         res.render('updateOneScript', {script})//sending script values to prefill the update one script pug form
     })
     .catch((err)=>{
         res.status(500).json(err);
     })
 }
+
+//need helper function GET ALL to protect against duplications?
+
 
 //posts a new prescription to the database
 module.exports.postScript=(req, res, next)=>{
@@ -139,6 +136,15 @@ module.exports.postScript=(req, res, next)=>{
         value6= dateArray[5];
     }
 
+    //fix date format going into database
+    let exp = req.body.exp_date;
+    let expArr = exp.split("T");
+    let expDate = expArr[0];
+    //fix date entered
+    let d=req.body.date_entered;
+    let dateArr=d.split("T");
+    let dateEntered = dateArr[0];
+
     prescription.create({
         script_name: req.body.script_name,
         dose: req.body.dose,
@@ -149,8 +155,8 @@ module.exports.postScript=(req, res, next)=>{
         frequency4: value4,
         frequency5: value5,
         frequency6: value6,
-        exp_date: req.body.exp_date,
-        date_entered:req.body.date_entered,
+        exp_date: expDate,
+        date_entered:dateEntered,
         patient_id: req.session.passport.user.id,
         doctor_name: req.body.doctor_name,
         pharmacy_name: req.body.pharmacy_name,
@@ -174,7 +180,6 @@ module.exports.updateScript = (req, res, next) => {
             script_name: req.body.script_name,  //can only update these parts of a prescription, otherwise delete & start again.
             dose: req.body.dose,
             total_in_bottle: req.body.total_in_bottle,
-            exp_date: req.body.exp_date,
             doctor_name: req.body.doctor_name,
             pharmacy_name: req.body.pharmacy_name,
             pharmacy_phone: req.body.pharmacy_phone
