@@ -10,4 +10,9 @@ const { renderCreateAllergyForm, postAllergy } = require('../controllers/allergy
 router.post('/allergies', postAllergy);
 router.get('/allergies/create', renderCreateAllergyForm);
 
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/login');
+}
 module.exports = router;

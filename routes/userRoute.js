@@ -9,4 +9,9 @@ router.get('/user/:id', getUserDetails); //renders user_detail.pug (my account p
 
 // router.put('/user/:id', updateUser);
 
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/login');
+}
 module.exports = router;

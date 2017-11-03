@@ -14,5 +14,9 @@ router.get('/prescriptions/create', renderCreateScriptForm);
 router.put('/prescription/:id', updateScript);
 router.delete('/prescription/:id', deleteScript);
 
-
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/login');
+}
 module.exports= router;
