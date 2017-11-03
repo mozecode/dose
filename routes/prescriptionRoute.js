@@ -6,13 +6,13 @@ const router = Router();
 //require in items from the controller (see router below)
 const { getAllUserScripts, renderCreateScriptForm, postScript, getScripts, getScriptDetails, updateScript, deleteScript } = require('../controllers/prescriptionCtrl');
 
-router.get('/prescriptions/user/:id', getAllUserScripts);
-router.get('/prescriptions/update', getScripts);
-router.get('/prescription/:id', getScriptDetails);
-router.post('/prescriptions', postScript);
-router.get('/prescriptions/create', renderCreateScriptForm);
-router.put('/prescription/:id', updateScript);
-router.delete('/prescription/:id', deleteScript);
+router.get('/prescriptions/user/:id', isLoggedIn, getAllUserScripts);
+router.get('/prescriptions/update', isLoggedIn, getScripts);
+router.get('/prescription/:id', isLoggedIn, getScriptDetails);
+router.post('/prescriptions', isLoggedIn, postScript);
+router.get('/prescriptions/create', isLoggedIn, renderCreateScriptForm);
+router.put('/prescription/:id', isLoggedIn, updateScript);
+router.delete('/prescription/:id', isLoggedIn, deleteScript);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

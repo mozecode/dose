@@ -7,8 +7,8 @@ const router = Router();
 const { renderCreateAllergyForm, postAllergy } = require('../controllers/allergyCtrl');
 
 
-router.post('/allergies', postAllergy);
-router.get('/allergies/create', renderCreateAllergyForm);
+router.post('/allergies', isLoggedIn, postAllergy);
+router.get('/allergies/create', isLoggedIn, renderCreateAllergyForm);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
