@@ -1,15 +1,11 @@
 'use strict';
-// router.get('/prescriptions/user/:id', getAllUserScripts);
-// router.get('/prescription/:id', getScriptDetails);
-// router.post('/prescriptions', postScript);
-// router.post('/prescriptions/create', renderCreateScriptForm)
-// router.put('/prescription/:id', updateScript);
 var moment = require('moment');
 
 module.exports.renderCreateScriptForm = (req, res, next) => {
     res.render('createScript', {});
 }
-//organizes a user's prescriptions by time to take:
+
+//gets all of a user's prescriptions
 module.exports.getAllUserScripts = (req, res, next) => {
     const { user, allergy, prescription } = req.app.get('models');
     user.findAll(
@@ -89,7 +85,8 @@ module.exports.getScriptDetails=(req, res, next)=>{
     })
 }
 
-//need helper function GET ALL to protect against duplications
+//need helper function GET ALL to protect against duplications?
+
 
 //posts a new prescription to the database
 module.exports.postScript=(req, res, next)=>{
