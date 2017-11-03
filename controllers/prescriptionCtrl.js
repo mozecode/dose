@@ -179,14 +179,10 @@ module.exports.postScript=(req, res, next)=>{
 //come back and look at this also:
 module.exports.updateScript = (req, res, next) => {
     const { prescription } = req.app.get('models');
-    let exp= req.body.exp_date;
-    let expArr = exp.split("T");
-    let expDate = expArr[0];
     prescription.update({
             script_name: req.body.script_name,  //can only update these parts of a prescription, otherwise delete & start again.
             dose: req.body.dose,
             total_in_bottle: req.body.total_in_bottle,
-            exp_date: expDate,
             doctor_name: req.body.doctor_name,
             pharmacy_name: req.body.pharmacy_name,
             pharmacy_phone: req.body.pharmacy_phone

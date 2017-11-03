@@ -1,6 +1,7 @@
 if session.passport
   span #{session.passport.user.username}
   form(method="POST")
+    a(href="/welcome") DOSE BRAND IMG?
     a(href="/user/"+session.passport.user.id) My Account
     a(href="/allergies/create") Add Allergies
     a(href="/welcome") Main Menu
