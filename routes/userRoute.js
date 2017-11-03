@@ -3,10 +3,10 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getUserDetails, updateUser } = require('../controllers/userCtrl');
+const { getUserDetails } = require('../controllers/userCtrl');
 
-router.get('/user/:id', getUserDetails);
+router.get('/user/:id', getUserDetails); //renders user_detail.pug (my account page)
 
-router.put('/user/:id', updateUser);
+// router.put('/user/:id', updateUser);
 
 module.exports = router;

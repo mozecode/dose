@@ -1,0 +1,39 @@
+extends index.pug
+
+block content
+    a(href="/welcome") Back to Main Menu
+    if messages && messages.length
+        h2 #{messages}
+    div(class="addScript")
+        div(class="")
+            h3 Please look on your prescription bottle for the following information:
+            form(method="POST", action='/prescriptions')
+                input(type="text", placeholder="Drug Name and Strength:" name="script_name", required=true)
+                br
+                input(type="number", name="dose", placeholder="Number of pills you take for one dose:" required=true)
+                br
+                h3 How often are you supposed to take each dose?
+                select(name="frequency" id="frequencyDropdown")
+                    option(value="" disabled) Select:
+                    option(id="1morning" ) Once a day in the morning (7:00 AM)
+                    option(id="1bedtime") Once a day at bedtime (11:00 PM)
+                    option(id="2x") Two times a day(7:00 AM, 11:00 PM)
+                    option(id="3x") Three times a day (7:00 AM, 4:00 PM, 11:00 PM)
+                    option(id="4x") Four times a day (7:00 AM, 11:00 AM, 6:00 PM, 11:00 PM)
+                    option(id="6x") Six times a day (6:00 AM, 10:00 AM, 2:00 PM, 6:00 PM, 10:00 PM, 2:00 AM)
+                br
+                label(for="exp_date") Expiration Date of Medication:
+                br
+                input(type="date", name="exp_date", required=true)
+                br
+                label(for="date_entered") Today's Date:
+                br
+                input(type="date", name="date_entered", required=true)
+                br
+                input(type="text", placeholder="Your Doctor's Name:" name="doctor_name", required=true)
+                br
+                input(type="text", placeholder="Pharmacy Name:" name="pharmacy_name", required=true)
+                br
+                input(type="tel", placeholder="Pharmacy Phone:" name="pharmacy_phone", required=true)
+                br
+                button(type="submit" id="submitScript" class="btn btn-secondary submitScript" style="cursor: pointer;") Submit

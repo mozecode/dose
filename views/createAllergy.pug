@@ -1,0 +1,10 @@
+extends index.pug
+
+block content
+    a(href="/welcome") Back to Main Menu
+    if messages && messages.length
+        h2 #{messages}
+    form(method="POST", action='/allergies')
+        h3 Please enter any drug allergy you have, one at a time:
+        input(type="text", placeholder="Enter name of drug" name="drug_name", required=true)
+        button(type="submit" ) Submit
