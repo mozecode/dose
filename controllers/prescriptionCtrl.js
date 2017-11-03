@@ -191,4 +191,14 @@ module.exports.updateScript = (req, res, next) => {
         });
 };
 
-//deleteScript
+module.exports.deleteScript=(req, res, next)=>{
+    const { prescription } = req.app.get('models');
+    prescription.destroy({
+        where: {
+            id: req.params.id,
+        }
+    })
+        .then((result) => {
+            res.render('welcome');
+        })
+}
