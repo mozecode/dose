@@ -1,0 +1,13 @@
+extends index.pug
+
+block content
+
+    form(method='POST' class=''  id="updateScript" action=`/prescription/${script.id}?_method=PUT`)
+        input(type='text' name='script_name' class='' id="scriptName" value=script.script_name)
+        input(type='text' name='dose' class='' id="scriptDose" value=script.dose)
+        input(type='text' name='exp_date' class='' id="expDate" value=script.exp_date)
+        input(type='text' name='doctor_name' class='' id="docName" value=script.doctor_name)
+        input(type='text' name='pharmacy_name' class='' id="pharmName" value=script.pharmacy_name)
+        input(type='text' name='pharmacy_phone' class='' id="pharmPhone" value=script.pharmacy_phone)
+
+        button(type="submit")
