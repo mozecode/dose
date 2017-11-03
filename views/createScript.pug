@@ -9,11 +9,11 @@ block content
             form(method="POST", action='/prescriptions')
                 label(for="script_name") Prescription Name and Strength:
                 br
-                input(type="text", placeholder="e.g. Amoxicillin 250 mg" name="script_name", required=true)
+                input(type="text", placeholder="Amoxicillin 250 mg" name="script_name", required=true)
                 br
                 label(for="dose") How many pills are you supposed to take for one dose?
                 br
-                input(type="number", name="dose", placeholder="Number of pills you take for one dose:" required=true)
+                input(type="number", name="dose", placeholder="1" required=true)
                 br
                 label(for="frequency") How often are you supposed to take each dose?
                 br
@@ -28,7 +28,7 @@ block content
                 br
                 label(for="total_in_bottle") How many pills are in your bottle?
                 br
-                input(type="number" name="total_in_bottle" required=true)
+                input(type="number" placeholder="30" name="total_in_bottle" required=true)
                 br
                 label(for="exp_date") Expiration Date of Medication:
                 br
@@ -40,14 +40,14 @@ block content
                 br
                 label(for="doctor_name") What doctor prescribed this medication?
                 br
-                input(type="text", placeholder="e.g. Dr. Indira Amani" name="doctor_name", required=true)
+                input(type="text", placeholder="Indira Amani" name="doctor_name", required=true)
                 br
                 label(for="pharmacy_name") What pharmacy filled this prescription?
                 br
-                input(type="text", placeholder="e.g. CVS Pharmacy" name="pharmacy_name", required=true)
+                input(type="text", placeholder="CVS Pharmacy" name="pharmacy_name", required=true)
                 br
                 label(for="pharmacy_phone") What is the phone number to reach this pharmacy?
                 br
-                input(type="tel", placeholder="Pharmacy Phone:" name="pharmacy_phone", required=true)
+                input(type="tel", placeholder="999-999-9999" name="pharmacy_phone", required=true)
                 br
                 button(type="submit" id="submitScript" class="btn btn-secondary submitScript" style="cursor: pointer;") Submit
