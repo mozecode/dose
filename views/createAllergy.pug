@@ -1,7 +1,6 @@
 extends index.pug
 
 block content
-    a(href="/welcome") Back to Main Menu
     if messages && messages.length
         h2 #{messages}
     form(method="POST", action='/allergies')

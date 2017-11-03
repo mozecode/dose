@@ -54,9 +54,45 @@ module.exports.getAllUserScripts = (req, res, next) => {
         });
 };
 
+module.exports.getScripts=(req, res, next)=>{   //get all scripts to render as clickable links in updateList.pug
+    const {user, prescription } = req.app.get('models');
+    user.findAll(
+        {
+            include: [{
+                all: true
+            }],
+            where: {
+                id: req.session.passport.user.id
+            }
+        })
+        .then((oneuser) => {
+            console.log("What do we get from getscripts oneuser?", oneuser)
+            let person = oneuser[0].dataValues
+            console.log("person in getscripts?", person)
+            res.render('updateList', {
+                prescription: person.prescriptions
+            });
+        })
+        .catch((err) => {
+            next(err);
+        });
+};
+
+module.exports.getScriptDetails=(req, res, next)=>{
+    //find prescription by id
+    const { prescription } = req.app.get('models');
+    prescription.findById(parseInt(req.params.id), { raw: true })
+    .then((script)=>{
+        console.log("script info?", script)
+        res.render('updateOneScript', {script})//sending script values to prefill the update one script pug form
+    })
+    .catch((err)=>{
+        res.status(500).json(err);
+    })
+}
+
 //posts a new prescription to the database
 module.exports.postScript=(req, res, next)=>{
-    console.log("hello from postScript");
     const { prescription, user } = req.app.get('models');
     var regExp = /\(([^)]+)\)/;//capture all items between parentheses (idea from https://stackoverflow.com/questions/17779744/regular-expression-to-get-a-string-between-parentheses-in-javascript )
     var dates = regExp.exec(req.body.frequency);
@@ -71,7 +107,6 @@ module.exports.postScript=(req, res, next)=>{
     let value6 = null;
     //default values are null unless I reassign them below.
 
-
     if (dateArray.length === 1){
         //if the array has 1 value:match the time based on whether it's morning or evening
         if(dateArray[0] =='7:00 AM'){
@@ -79,7 +114,6 @@ module.exports.postScript=(req, res, next)=>{
         }else if(dateArray[0]=='11:00 PM'){
             value6= dateArray[0];
         }
-
     }else if (dateArray.length === 2){
         //if the array has 2 values: assign dates value 1 and value 6 ex.  value1 = dateArray[0]
         value1= dateArray[0];
@@ -108,6 +142,7 @@ module.exports.postScript=(req, res, next)=>{
     prescription.create({
         script_name: req.body.script_name,
         dose: req.body.dose,
+        total_in_bottle: req.body.total_in_bottle,
         frequency1: value1,
         frequency2: value2,
         frequency3: value3,
@@ -124,12 +159,46 @@ module.exports.postScript=(req, res, next)=>{
         updatedAt: null
     })
     .then((result) => {
-        res.status(200).redirect('/prescriptions/user/'+req.session.passport.user.id);
+        res.status(200).redirect('/prescriptions/user/'+req.session.passport.user.id);  //redirect to view of all user medications
     })
     .catch((err) => {
         res.status(500).json(err)
-        console.log(err);
     })
 };
 
 
+//come back and look at this also:
+module.exports.updateScript = (req, res, next) => {
+    const { prescription } = req.app.get('models');
+    prescription.update({
+            script_name: req.body.script_name,  //can only update these parts of a prescription, otherwise delete & start again.
+            dose: req.body.dose,
+            total_in_bottle: req.body.total_in_bottle,
+            exp_date: req.body.exp_date,
+            doctor_name: req.body.doctor_name,
+            pharmacy_name: req.body.pharmacy_name,
+            pharmacy_phone: req.body.pharmacy_phone
+        }, {
+            where: {
+                id: req.params.id //gets this id from the route
+            }
+        })
+        .then((result)=>{
+            res.render('welcome')  //instead redirect to where?
+        })
+        .catch((err) => {
+            next(err);
+        });
+};
+
+module.exports.deleteScript=(req, res, next)=>{
+    const { prescription } = req.app.get('models');
+    prescription.destroy({
+        where: {
+            id: req.params.id,
+        }
+    })
+        .then((result) => {
+            res.render('welcome');
+        })
+}

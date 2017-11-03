@@ -1,0 +1,23 @@
+extends index.pug
+
+block content
+    h3 Update #{script.script_name} information:
+    form(method='POST' class=''  id="updateScript" action=`/prescription/${script.id}?_method=PUT`)
+        input(type='text' name='script_name' class='' id="scriptName" value=script.script_name)
+        br
+        input(type='text' name='dose' class='' id="scriptDose" value=script.dose)
+        br
+        input(type='text' name='total_in_bottle' class='' id="totalInBottle" value=script.total_in_bottle)
+        br
+        input(type='text' name='exp_date' class='' id="expDate" value=script.exp_date)
+        br
+        input(type='text' name='doctor_name' class='' id="docName" value=script.doctor_name)
+        br
+        input(type='text' name='pharmacy_name' class='' id="pharmName" value=script.pharmacy_name)
+        br
+        input(type='text' name='pharmacy_phone' class='' id="pharmPhone" value=script.pharmacy_phone)
+
+        button(type="submit" class="btn btn-secondary") Update
+        br
+    form(method='POST' action=`/prescription/${script.id}?_method=DELETE`)
+        button(type="submit" class="btn btn-secondary deleteBtn") Delete
