@@ -184,7 +184,7 @@ module.exports.updateScript = (req, res, next) => {
             }
         })
         .then((result)=>{
-            res.render('welcome')//instead redirect to where?
+            res.render('welcome')  //instead redirect to where?
         })
         .catch((err) => {
             next(err);

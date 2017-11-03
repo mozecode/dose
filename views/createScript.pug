@@ -1,7 +1,6 @@
 extends index.pug
 
 block content
-    a(href="/welcome") Back to Main Menu
     if messages && messages.length
         h2 #{messages}
     div(class="addScript")
@@ -22,7 +21,7 @@ block content
                     option(id="4x") Four times a day (7:00 AM, 11:00 AM, 6:00 PM, 11:00 PM)
                     option(id="6x") Six times a day (6:00 AM, 10:00 AM, 2:00 PM, 6:00 PM, 10:00 PM, 2:00 AM)
                 br
-                input(type="number" placeholder="Number of pills in bottle:" name="total_in_bottle" required=true) 
+                input(type="number" placeholder="Number of pills in bottle:" name="total_in_bottle" required=true)
                 br
                 label(for="exp_date") Expiration Date of Medication:
                 br

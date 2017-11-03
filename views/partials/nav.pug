@@ -3,4 +3,5 @@ if session.passport
   form(method="POST")
     a(href="/user/"+session.passport.user.id) My Account
     a(href="/allergies/create") Add Allergies
+    a(href="/welcome") Main Menu
     button(type="submit" formaction="/logout") Log Out
