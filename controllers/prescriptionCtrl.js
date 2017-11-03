@@ -142,6 +142,7 @@ module.exports.postScript=(req, res, next)=>{
     prescription.create({
         script_name: req.body.script_name,
         dose: req.body.dose,
+        total_in_bottle: req.body.total_in_bottle,
         frequency1: value1,
         frequency2: value2,
         frequency3: value3,
@@ -172,6 +173,7 @@ module.exports.updateScript = (req, res, next) => {
     prescription.update({
             script_name: req.body.script_name,  //can only update these parts of a prescription, otherwise delete & start again.
             dose: req.body.dose,
+            total_in_bottle: req.body.total_in_bottle,
             exp_date: req.body.exp_date,
             doctor_name: req.body.doctor_name,
             pharmacy_name: req.body.pharmacy_name,
