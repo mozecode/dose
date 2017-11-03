@@ -68,7 +68,6 @@ module.exports.getScripts=(req, res, next)=>{   //get all scripts to render as c
         .then((oneuser) => {
             console.log("What do we get from getscripts oneuser?", oneuser)
             let person = oneuser[0].dataValues
-            console.log("person in getscripts?", person)
             res.render('updateList', {
                 prescription: person.prescriptions
             });
@@ -82,8 +81,7 @@ module.exports.getScriptDetails=(req, res, next)=>{
     //find prescription by id
     const { prescription } = req.app.get('models');
     prescription.findById(parseInt(req.params.id), { raw: true })
-    .then((script)=>{
-        console.log("script info?", script)
+    .then((script)=>{//why does putting anything else here, even a console log break it?
         res.render('updateOneScript', {script})//sending script values to prefill the update one script pug form
     })
     .catch((err)=>{
@@ -139,6 +137,11 @@ module.exports.postScript=(req, res, next)=>{
         value6= dateArray[5];
     }
 
+    //fix date format going into database
+    let exp = req.body.exp_date;
+    let expArr = exp.split("T");
+    let expDate = expArr[0];
+
     prescription.create({
         script_name: req.body.script_name,
         dose: req.body.dose,
@@ -149,7 +152,7 @@ module.exports.postScript=(req, res, next)=>{
         frequency4: value4,
         frequency5: value5,
         frequency6: value6,
-        exp_date: req.body.exp_date,
+        exp_date: expDate,
         date_entered:req.body.date_entered,
         patient_id: req.session.passport.user.id,
         doctor_name: req.body.doctor_name,
