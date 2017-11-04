@@ -2,6 +2,7 @@ doctype html
 html
   head
     title Dose
+    link(rel='stylesheet', href='../styles/styles.css')
   body
     include partials/nav.pug
     //- h2 #{globalWow}
@@ -13,5 +14,7 @@ html
     button#showRegister register
 
     script
+      include ../node_modules/jquery/dist/jquery.js
       include ../client/client.js
-    //-   include the click event js for the buttons
+      include ../public/main.js
+    //-   include the click event js for the buttons & main.js for api related click events
