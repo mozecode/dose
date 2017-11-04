@@ -6,10 +6,13 @@ block content
     div(class="addScript")
         div(class="")
             h3 Please look on your prescription bottle for the following information:
+            label(for="script_name") Search for your prescription:
+            input(type="text", id="searchApi" placeholder="Amoxicillin" name="script_name", required=true)
+            button(type="submit" id="apiBtn") Search
+            br
             form(method="POST", action='/prescriptions')
-                label(for="script_name") Prescription Name and Strength:
                 br
-                input(type="text", placeholder="Amoxicillin 250 mg" name="script_name", required=true)
+                #target
                 br
                 label(for="dose") How many pills are you supposed to take for one dose?
                 br
@@ -51,3 +54,7 @@ block content
                 input(type="tel", placeholder="999-999-9999" name="pharmacy_phone", required=true)
                 br
                 button(type="submit" id="submitScript" class="btn btn-secondary submitScript" style="cursor: pointer;") Submit
+
+    script
+      include ../node_modules/jquery/dist/jquery.js
+      include ../public/main.js
