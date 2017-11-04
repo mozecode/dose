@@ -22,7 +22,7 @@ $('#apiBtn').click(function () {
         console.log("result", result[0].conceptProperties);//this gives the array of drug objects we can then loop over for autocomplete?
         let newDrugArray = result[0].conceptProperties;
         newDrugArray.forEach((drug) => {
-            $('#target').append(`<li>${drug.name}</li>`);
+            $('#target').append(`<input type="radio" value="${drug.name}"> ${drug.name} <br>`);
             $('#searchApi').val('');
         })
     }
@@ -39,3 +39,9 @@ function findDrugObj(array) {//loop through array and return the object that has
     return filteredDrugs;
 
 }
+
+$('#target').on('change', function(){ 
+    //grab value and assign it to variable
+    let drugChoice = event.target.value
+    //now how to get this where pug can slap it into the request object?
+})

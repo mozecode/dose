@@ -6,11 +6,11 @@ block content
     div(class="addScript")
         div(class="")
             h3 Please look on your prescription bottle for the following information:
-            label(for="script_name") Search for your prescription:
-            input(type="text", id="searchApi" placeholder="Amoxicillin" name="script_name", required=true)
-            button(type="submit" id="apiBtn") Search
             br
             form(method="POST", action='/prescriptions')
+                label(for="script_name") Search for your prescription:
+                input(type="text", id="searchApi" placeholder="Amoxicillin" name="script_name")
+                button(type="submit" id="apiBtn") Search
                 br
                 #target
                 br
