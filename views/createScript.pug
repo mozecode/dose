@@ -8,7 +8,7 @@ block content
             h3 Please look on your prescription bottle for the following information:
             br
             form(method="POST", action='/prescriptions')
-                label(for="script_name") Search for your prescription:
+                label(for="script_name") Search for your prescription by the first word in the drug name:
                 input(type="text", id="searchApi" placeholder="Amoxicillin" name="script_name")
                 button(type="submit" id="apiBtn") Search
                 br
@@ -58,3 +58,10 @@ block content
     script
       include ../node_modules/jquery/dist/jquery.js
       include ../public/main.js
+    
+    script.
+        $('#target').on('change', function(){  let drugChoice = event.target.value;
+        console.log("drugChoice?", drugChoice)
+        $('#searchApi').val(`${drugChoice}`);
+        $('#target').addClass('hidden');
+        });
