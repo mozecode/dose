@@ -143,52 +143,46 @@ module.exports.postScript=(req, res, next)=>{
     let dateArr=d.split("T");
     let dateEntered = dateArr[0];
 
-    console.log("user?", req.session.passport.user.id)
-    console.log("script name?????", req.body.script_name)
-//do a check for all prescriptions for the user
-    prescription.findAll(
-        { where: {
+//do a check for all prescriptions for the user and see if the prescription is already in the db
+prescription.findAll(
+    { where: {
+            patient_id: req.session.passport.user.id,
+            script_name:req.body.script_name
+        }
+    })
+    .then((oneScript) => {
+        if(oneScript.length>0){
+            console.log("sorry, that prescription already exists in the database");
+            res.redirect('welcome');
+        }
+        if (oneScript.length==0){ //if no match, add to the db
+            prescription.create({
+                script_name: req.body.script_name,
+                dose: req.body.dose,
+                total_in_bottle: req.body.total_in_bottle,
+                frequency1: value1,
+                frequency2: value2,
+                frequency3: value3,
+                frequency4: value4,
+                frequency5: value5,
+                frequency6: value6,
+                exp_date: expDate,
+                date_entered:dateEntered,
                 patient_id: req.session.passport.user.id,
-                script_name:req.body.script_name
-            }
-        })
-        .then((oneScript) => {
-            console.log("WTF one Script.length?" , oneScript.length)
-            if(oneScript.length>0){
-                console.log("sorry, that prescription already exists in the database");
-                //reassign value of match here & redirect
-                res.redirect('welcome');
-            }
-            if (oneScript.length==0){ //if no match, add to the db
-                prescription.create({
-                    script_name: req.body.script_name,
-                    dose: req.body.dose,
-                    total_in_bottle: req.body.total_in_bottle,
-                    frequency1: value1,
-                    frequency2: value2,
-                    frequency3: value3,
-                    frequency4: value4,
-                    frequency5: value5,
-                    frequency6: value6,
-                    exp_date: expDate,
-                    date_entered:dateEntered,
-                    patient_id: req.session.passport.user.id,
-                    doctor_name: req.body.doctor_name,
-                    pharmacy_name: req.body.pharmacy_name,
-                    pharmacy_phone: req.body.pharmacy_phone,
-                    createdAt: null,
-                    updatedAt: null
-                })
-                .then((result) => {
-                    res.status(200).redirect('/prescriptions/user/'+req.session.passport.user.id);  //redirect to view of all user medications
-                })
-                .catch((err) => {
-                    res.status(500).json(err)
-                });
-            }
-        });
-
-
+                doctor_name: req.body.doctor_name,
+                pharmacy_name: req.body.pharmacy_name,
+                pharmacy_phone: req.body.pharmacy_phone,
+                createdAt: null,
+                updatedAt: null
+            })
+            .then((result) => {
+                res.status(200).redirect('/prescriptions/user/'+req.session.passport.user.id);  //redirect to view of all user medications
+            })
+            .catch((err) => {
+                res.status(500).json(err)
+            });
+        }
+    });
 };
 
 //come back and look at this also:
