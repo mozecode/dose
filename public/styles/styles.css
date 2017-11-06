@@ -1,4 +1,4 @@
-
+/* General Styles - mobile */
 body {
     list-style: none;
 }
@@ -18,12 +18,23 @@ h1, h2, .centerText {
 .marginTop {
     margin-top: 3%;
 }
+
 /*Buttons*/
 div.btnContainer {
     text-align: center;
     font-size:1.5em;
 }
 
+/* Navigation */
+
+nav.navbar.navbar-expand-sm.navbar-light.bg-light {
+    font-size:1.5rem;
+}
+
+img.brand {
+    height: 100px;
+    width:auto;
+}
 /* WelcomeMsg Page */
 div.welcome {
    margin:10%;
@@ -61,3 +72,9 @@ div.iconContainer {
     width:auto;
 }
 
+/* add Prescription view */
+
+
+/* update prescription view */
+
+/*  */
