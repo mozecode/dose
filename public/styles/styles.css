@@ -86,11 +86,15 @@ div.iconContainer {
 }
 
 /* add Prescription view */
-.addScript {
+.addScript, .updateOne {
     background-color:white;
 }
 
-.addScript form {
+.updateOne {
+    text-align: center;
+}
+
+.addScript form, .updateOne form{
     font-size:1.5rem;
     text-align: center;
 }
@@ -100,16 +104,29 @@ div.iconContainer {
     margin-bottom:20px;
 }
 
-.addScript[type="radio"]{
-    padding-left:1%;
+#target{
     text-align:left;
+    font-size: 1.25em;
+    text-align: center;
 }
 
-.addScript form input {
+
+
+.addScript form input, .updateOne form input{
     width:60%;
     padding:1%;
     font-size:1.5rem;
     margin-bottom:20px;
+}
+
+.addScript form input[type="radio"] {
+    width:15%;
+}
+
+form#updateScript button.btn.btn-secondary.updateBtn,
+div.updateOne form button.btn.btn-secondary {
+    display: inline-block;
+    padding-right:20px;
 }
 
 /* update prescription view */
@@ -118,6 +135,7 @@ div.updateScripts h3 {
     padding-bottom:30px;
     font-weight: bold;
     text-align: center;
+    text-shadow:1px 1px 1px white;
 }
 
 div.updateScripts li {
