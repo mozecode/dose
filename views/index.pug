@@ -2,16 +2,21 @@ doctype html
 html
   head
     title Dose
+    link(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
+    link(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous")
     link(rel='stylesheet', href='../styles/styles.css')
-  body
+  body(class="container-fluid")
     include partials/nav.pug
     //- h2 #{globalWow}
 
   block content
     if !session.passport
       include partials/welcomeMsg.pug
-    button#showLogin login
-    button#showRegister register
+    div.btnContainer
+      button#showLogin.login.marginTop Log In
+      br
+      button#showRegister.register.marginTop Register
 
     script
       include ../node_modules/jquery/dist/jquery.js

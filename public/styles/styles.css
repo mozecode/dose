@@ -1,3 +1,36 @@
-.hidden{
+
+body {
+    list-style: none;
+}
+
+.hidden {
     display:none;
 }
+
+h1 {
+    padding-top:70px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.marginTop {
+    margin-top: 3%;
+}
+/*Buttons*/
+div.btnContainer {
+    text-align: center;
+    font-size:1.5em;
+}
+
+div.welcome {
+   margin:10%;
+    /* background-image: url('../../images/') */
+}
+
+.welcome-text {
+    padding-top:70px;
+}
+
+
