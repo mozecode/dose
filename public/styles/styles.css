@@ -1,6 +1,10 @@
 /* General Styles - mobile */
 body {
     list-style: none;
+    background-image: url('/images/dosebackground.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height:100%;
 }
 
 .hidden {
@@ -37,8 +41,8 @@ img.brand {
 }
 /* WelcomeMsg Page */
 div.welcome {
-   margin:10%;
-    /* background-image: url('../../images/') */
+    margin:10%;
+    height:100%;
 }
 
 .welcome-text {
@@ -62,13 +66,22 @@ div.loginForm form input {
 }
 
 /* Main Menu (welcome view) */
+
+.iconContainer.centerText.col-xs-6.col-sm-6.col-md-6.col-lg-3{
+    background-color:white;
+    opacity:.7;
+}
+.iconContainer.centerText.col-xs-6.col-sm-6.col-md-6.col-lg-3 a h3{
+    text-shadow: 1px 1px 1px black;
+}
 i.menuIcon {
     color:#007bff;
     font-size:4em;
+    text-shadow: 2px 2px 2px black;
 }
 
 div.iconContainer {
-    height: 150px;
+    height: 175px;
     width:auto;
 }
 
