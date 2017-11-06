@@ -123,11 +123,6 @@ div.iconContainer {
     width:15%;
 }
 
-form#updateScript button.btn.btn-secondary.updateBtn,
-div.updateOne form button.btn.btn-secondary {
-    display: inline-block;
-    padding-right:20px;
-}
 
 /* update prescription view */
 div.updateScripts h3 {
