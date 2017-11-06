@@ -47,7 +47,7 @@ div.welcome {
 
 .welcome-text {
     padding-top:50px;
-    padding-bottom:50px;
+    padding-bottom:30px;
 }
 
 /* Login Form */
@@ -86,7 +86,31 @@ div.iconContainer {
 }
 
 /* add Prescription view */
+.addScript {
+    background-color:white;
+}
 
+.addScript form {
+    font-size:1.5rem;
+    text-align: center;
+}
+
+.addScript form select#frequencyDropdown{
+    width:60%;
+    margin-bottom:20px;
+}
+
+.addScript[type="radio"]{
+    padding-left:1%;
+    text-align:left;
+}
+
+.addScript form input {
+    width:60%;
+    padding:1%;
+    font-size:1.5rem;
+    margin-bottom:20px;
+}
 
 /* update prescription view */
 
