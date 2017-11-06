@@ -11,7 +11,7 @@ h1 {
     padding-top:70px;
 }
 
-h1, h2 {
+h1, h2, .centerText {
     text-align: center;
 }
 
@@ -24,13 +24,40 @@ div.btnContainer {
     font-size:1.5em;
 }
 
+/* WelcomeMsg Page */
 div.welcome {
    margin:10%;
     /* background-image: url('../../images/') */
 }
 
 .welcome-text {
-    padding-top:70px;
+    padding-top:50px;
+    padding-bottom:50px;
 }
 
+/* Login Form */
+div.loginForm {
+    padding-top:5%;
+    text-align: center;
+    margin:0 auto;
+    font-size: 1.5rem;
+}
+
+div.loginForm form input {
+    width:80%;
+    padding:10px;
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+/* Main Menu (welcome view) */
+i.menuIcon {
+    color:#007bff;
+    font-size:4em;
+}
+
+div.iconContainer {
+    height: 150px;
+    width:auto;
+}
 

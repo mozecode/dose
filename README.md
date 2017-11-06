@@ -19,7 +19,8 @@ This will get the project up and working on your local machine.
     dotenv 4.0.0,
     express 4.16.1,
     express-flash 0.0.2,
-    express-session 1.15.6,
+    express-session 1.15.6
+    font-awesome: 4.7.0,
     passport 0.4.0,
     passport-local 1.0.0,
     pg 7.3.0,
@@ -29,3 +30,5 @@ This will get the project up and working on your local machine.
     bootstrap 4.0.0-beta,
     jquery 3.2.1,
     method-override 2.3.10
+    moment: 2.19.1,
+    ontime: 0.0.3
