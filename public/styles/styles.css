@@ -32,19 +32,37 @@ div.btnContainer {
 /* Navigation */
 
 nav.navbar.navbar-expand-sm.navbar-light.bg-light {
-    font-size:1.5rem;
+    font-size:1.3rem;
+    height:100px;
+
 }
 
 img.brand {
     height: 100px;
     width:auto;
 }
-/* WelcomeMsg Page */
-div.welcome {
-    margin:10%;
-    height:100%;
+
+.navbar-light .navbar-nav .nav-link {
+    margin-right:20px;
 }
 
+button.logoutBtn {
+    margin-left:50px;
+}
+
+/* WelcomeMsg Page */
+div.welcome {
+    text-shadow: 1px 1px 1px white;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+div.welcome span {
+    color:#007bff;
+    font-weight:bold;
+    font-size: 2em;
+    text-shadow:1px 1px 1px black;
+}
 .welcome-text {
     padding-top:50px;
     padding-bottom:30px;
@@ -62,14 +80,13 @@ div.loginForm form input {
     width:80%;
     padding:10px;
     margin-top:5%;
-    margin-bottom:5%;
+    margin-bottom:2%;
 }
 
 /* Main Menu (welcome view) */
 
 .iconContainer.centerText.col-xs-6.col-sm-6.col-md-6.col-lg-3{
     background-color:white;
-    opacity:.7;
 }
 .iconContainer.centerText.col-xs-6.col-sm-6.col-md-6.col-lg-3 a h3{
     text-shadow: 1px 1px 1px black;
@@ -81,16 +98,13 @@ i.menuIcon {
 }
 
 div.iconContainer {
-    height: 185px;
+    height: 175px;
     width:auto;
 }
 
-/* add Prescription view */
+/* add Prescription view, updateScript views */
 .addScript, .updateOne {
     background-color:white;
-}
-
-.updateOne {
     text-align: center;
 }
 
@@ -110,19 +124,25 @@ div.iconContainer {
     text-align: center;
 }
 
-
-
 .addScript form input, .updateOne form input{
     width:60%;
     padding:1%;
-    font-size:1.5rem;
+    font-size:1.3rem;
     margin-bottom:20px;
+}
+
+button#apiBtn {
+    margin-left: 10px;
 }
 
 .addScript form input[type="radio"] {
     width:15%;
 }
 
+button#submitScript.btn.btn-secondary.submitScript {
+    padding:2%;
+    font-size:1.2em;
+}
 
 /* update prescription view */
 div.updateScripts h3 {
@@ -142,4 +162,20 @@ div.updateScripts li {
     background-color:white;
     opacity:.7;
 }
-/*  */
+/* add allergy */
+div.allergy {
+    padding-top:50px;
+    text-align: center;
+    text-shadow: 1px 1px 1px white;
+}
+
+div.allergy input {
+    width:50%;
+    font-size: 1.5em;
+}
+
+div.allergy form button.submitBtn {
+    margin-left: 10px;
+}
+
+/* see my prescriptions */

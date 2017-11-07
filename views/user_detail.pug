@@ -1,18 +1,19 @@
 extends index.pug
 
 block content
-    h2 Account Details:
+    div.account
+        h2 Account Details:
 
-    p Name:#{person.first_name} #{person.last_name}
+        p Name:#{person.first_name} #{person.last_name}
 
-    p Email:#{person.email}
+        p Email:#{person.email}
 
-    p Mobile Phone Number:#{person.phone}
-    br
-    ul #{person.first_name}'s Allergies:
-        each all in allergy
-            li #{all.dataValues.drug_name}
-    br
-    ul #{person.first_name}'s Prescriptions:
-        each script in prescription
-            li #{script.dataValues.script_name}
+        p Mobile Phone Number:#{person.phone}
+        br
+        ul #{person.first_name}'s Allergies:
+            each all in allergy
+                li #{all.dataValues.drug_name}
+        br
+        ul #{person.first_name}'s Prescriptions:
+            each script in prescription
+                li #{script.dataValues.script_name}
