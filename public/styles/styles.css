@@ -68,6 +68,17 @@ div.welcome span {
     padding-bottom:30px;
 }
 
+/* Register Form */
+div.register {
+    text-align: center;
+    padding-top:50px;
+}
+
+div.register input{
+    width:50%;
+    font-size: 1.5em;
+}
+
 /* Login Form */
 div.loginForm {
     padding-top:5%;
@@ -178,4 +189,4 @@ div.allergy form button.submitBtn {
     margin-left: 10px;
 }
 
-/* see my prescriptions */
+/* see my prescriptions- script list view */
