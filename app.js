@@ -14,7 +14,7 @@ require('dotenv').config(); //change env file
 const port = process.env.PORT || 8080;
 
 app.use(methodOverride('_method')); //method override for use with forms
-app.use(express.static(__dirname + '/public'));//give access to files in public folder (styles, jquery)
+app.use(express.static(__dirname + '/public'));//give access to files in public folder (styles, jquery, images)
 
 app.set('models', require('./models'));  //require in all models to prevent db duplication
 app.set('view engine', 'pug');// pug is the view engine

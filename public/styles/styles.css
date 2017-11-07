@@ -1,3 +1,213 @@
-.hidden{
+/* General Styles - mobile */
+body {
+    list-style: none;
+    background-image: url('/images/dosebackground.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height:100vh;
+}
+
+.hidden {
     display:none;
+}
+
+h1 {
+    padding-top:70px;
+}
+
+h1, h2, .centerText {
+    text-align: center;
+}
+
+.marginTop {
+    margin-top: 3%;
+}
+
+div.btnContainer {
+    text-align: center;
+    font-size:1.5em;
+}
+
+/* Navigation */
+
+nav.navbar.navbar-expand-sm.navbar-light.bg-light {
+    font-size:1.3rem;
+    height:100px;
+
+}
+
+img.brand {
+    height: 100px;
+    width:auto;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    margin-right:20px;
+}
+
+button.logoutBtn {
+    margin-left:50px;
+}
+
+/* WelcomeMsg Page */
+div.welcome {
+    text-shadow: 1px 1px 1px white;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+div.welcome span {
+    color:#007bff;
+    font-weight:bold;
+    font-size: 2em;
+    text-shadow:1px 1px 1px black;
+}
+.welcome-text {
+    text-shadow: 1px 1px 1px white;
+    padding-top:50px;
+    padding-bottom:30px;
+}
+
+/* Register Form */
+div.register {
+    text-align: center;
+    padding-top:50px;
+}
+
+div.register input{
+    width:50%;
+    font-size: 1.5em;
+}
+
+/* Login Form */
+div.loginForm {
+    padding-top:5%;
+    text-align: center;
+    margin:0 auto;
+    font-size: 1.5rem;
+}
+
+div.loginForm form input {
+    width:60%;
+    padding:10px;
+    margin-top:5%;
+    margin-bottom:2%;
+}
+
+/* Main Menu (welcome view) */
+
+.iconContainer.centerText.col-md-6.col-lg-3{
+    background-color:white;
+}
+.iconContainer.centerText.col-md-6.col-lg-3 a h3{
+    text-shadow: 1px 1px 1px black;
+}
+i.menuIcon {
+    color:#007bff;
+    font-size:4em;
+    text-shadow: 2px 2px 2px black;
+}
+
+div.iconContainer {
+    height: 175px;
+    width:100%;
+}
+
+/* add Prescription view, updateScript views */
+.addScript, .updateOne {
+    background-color:white;
+    text-align: center;
+}
+
+.addScript form, .updateOne form{
+    font-size:1.5rem;
+    text-align: center;
+}
+
+.addScript form select#frequencyDropdown{
+    width:60%;
+    margin-bottom:20px;
+}
+
+#target{
+    text-align:left;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+.addScript form input, .updateOne form input{
+    width:60%;
+    padding:1%;
+    font-size:1.3rem;
+    margin-bottom:20px;
+}
+
+button#apiBtn {
+    margin-left: 10px;
+}
+
+.addScript form input[type="radio"] {
+    width:15%;
+}
+
+button#submitScript.btn.btn-secondary.submitScript {
+    padding:1%;
+    font-size:1.2em;
+}
+
+    button.btn.btn-secondary.updateBtn,
+button.btn.btn-secondary.deleteBtn {
+    padding:1%;
+    font-size:1.3rem;
+    margin-bottom:20px;
+}
+
+/* update prescription view */
+div.updateScripts h3 {
+    padding-top:30px;
+    padding-bottom:30px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow:1px 1px 1px white;
+}
+
+div.updateScripts li {
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.5rem;
+    font-weight:bold;
+    text-shadow: 1px 1px 1px black;
+    background-color:white;
+    opacity:.7;
+}
+/* add allergy */
+div.allergy {
+    padding-top:50px;
+    text-align: center;
+    text-shadow: 1px 1px 1px white;
+}
+
+div.allergy input {
+    margin-top:30px;
+    width:50%;
+    font-size: 1.5em;
+    padding:1%;
+}
+
+div.allergy form button.submitBtn {
+    margin-left: 10px;
+    padding:1%;
+    font-size:1.2em;
+}
+
+/* see my prescriptions- script list view */
+
+/* account details view */
+div.account{
+    padding-top:50px;
+    font-size: 1.5em;
+    background-color:white;
+    opacity:.7;
+    padding-left:10%;
+    padding-right:10%;
 }

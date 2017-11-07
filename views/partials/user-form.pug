@@ -1,17 +1,17 @@
-
-form#signin(name="signin" method="post" action="/register")
-  input.text(id="first_name" placeholder="First Name" name="first_name" type="text")
-  br
-  input.text(name="last_name" placeholder="Last Name" type="text")
-  br
-  input(name="username" placeholder="Username" autocomplete="off" type="text")
-  br
-  input.text(name="email" placeholder="Email" type="text")
-  br
-  input(name="password" placeholder="Password" type="password")
-  br
-  input(name="confirmation" placeholder="Confirm Password" autocomplete="off" type="password")
-  br
-  input(name="phone" placeholder="Mobile Phone Number" type="tel")
-  br
-  input.btn(type="submit" value="Register")
+div.register
+  form#signin(name="signin" method="post" action="/register")
+    input.text(id="first_name" placeholder="First Name" name="first_name" type="text")
+    br
+    input.text(name="last_name" placeholder="Last Name" type="text")
+    br
+    input(name="username" placeholder="Username" autocomplete="off" type="text")
+    br
+    input.text(name="email" placeholder="Email" type="text")
+    br
+    input(name="password" placeholder="Password" type="password")
+    br
+    input(name="confirmation" placeholder="Confirm Password" autocomplete="off" type="password")
+    br
+    input(name="phone" placeholder="Mobile Phone Number" type="tel")
+    br
+    input.btn(type="submit" value="Register")

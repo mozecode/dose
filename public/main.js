@@ -22,7 +22,7 @@ $('#apiBtn').click(function () {
         console.log("result", result[0].conceptProperties);//this gives the array of drug objects we can then loop over for autocomplete?
         let newDrugArray = result[0].conceptProperties;
         newDrugArray.forEach((drug) => {
-            $('#target').append(`<input type="radio" name="medication" value="${drug.name}"> ${drug.name} <br>`);
+            $('#target').append(`<input class="col-xs-12 col-sm-12 col-md-12 col-lg-12" type="radio" name="medication" value="${drug.name}"> <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="medication">${drug.name}</label> <br>`);
         })
     }
 

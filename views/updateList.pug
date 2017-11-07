@@ -1,8 +1,9 @@
 extends index.pug
 
 block content
-    h3 Which prescription would you like to update?
-    ul
-        each script in prescription
-            - url = `/prescription/${script.id}`;
-                li(class='lists'): a(href=url) #{script.script_name}
+    div.updateScripts
+        h3 Which prescription would you like to update?
+        ul
+            each script in prescription
+                - url = `/prescription/${script.id}`;
+                    li(class='lists'): a(href=url) #{script.script_name}
