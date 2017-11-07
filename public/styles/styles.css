@@ -96,10 +96,10 @@ div.loginForm form input {
 
 /* Main Menu (welcome view) */
 
-.iconContainer.centerText.col-xs-6.col-sm-6.col-md-6.col-lg-3{
+.iconContainer.centerText.col-md-6.col-lg-3{
     background-color:white;
 }
-.iconContainer.centerText.col-xs-6.col-sm-6.col-md-6.col-lg-3 a h3{
+.iconContainer.centerText.col-md-6.col-lg-3 a h3{
     text-shadow: 1px 1px 1px black;
 }
 i.menuIcon {
@@ -110,7 +110,7 @@ i.menuIcon {
 
 div.iconContainer {
     height: 175px;
-    width:auto;
+    width:100%;
 }
 
 /* add Prescription view, updateScript views */
@@ -192,3 +192,13 @@ div.allergy form button.submitBtn {
 }
 
 /* see my prescriptions- script list view */
+
+/* account details view */
+div.account{
+    padding-top:50px;
+    font-size: 1.5em;
+    background-color:white;
+    opacity:.7;
+    padding-left:10%;
+    padding-right:10%;
+}
