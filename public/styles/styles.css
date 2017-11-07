@@ -151,8 +151,15 @@ button#apiBtn {
 }
 
 button#submitScript.btn.btn-secondary.submitScript {
-    padding:2%;
+    padding:1%;
     font-size:1.2em;
+}
+
+    button.btn.btn-secondary.updateBtn,
+button.btn.btn-secondary.deleteBtn {
+    padding:1%;
+    font-size:1.3rem;
+    margin-bottom:20px;
 }
 
 /* update prescription view */
@@ -189,6 +196,8 @@ div.allergy input {
 
 div.allergy form button.submitBtn {
     margin-left: 10px;
+    padding:1%;
+    font-size:1.2em;
 }
 
 /* see my prescriptions- script list view */
