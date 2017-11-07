@@ -19,17 +19,8 @@ module.exports.getAllUserScripts = (req, res, next) => {
         })
         .then((oneuser) => {
             let person = oneuser[0].dataValues
-            for(var i=0; i<person.prescriptions.length; i++){
-                console.log("scripts?", person.prescriptions[i].dataValues);
-            }
-
-            //push objects into new array in order based on whether they have the property required with the required value?
-
-
-
             //     let time1 = moment(person.prescriptions[i].dataValues.frequency1, ["HH:mm:ss"]).format("h:mm A");
                 // let now = moment();//use moment to display only future doses for this day?
-                //convert times from 24 hour clock to regular clock times for display to patient
             res.render('script_list', {//render list of user's scripts organized by time to take?
                 person,                 //use case/switch statement in pug?
                 allergy: person.allergies, //get user allergies
