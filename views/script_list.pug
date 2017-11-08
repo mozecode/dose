@@ -9,49 +9,84 @@ block content
             br
 
         ul #{person.first_name}'s Prescriptions:
-            div(id="2:00 AM")
+            div(id="2AM")
                 each script in prescription
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='2:00 AM'
                         li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
 
-            div(id="6:00 AM")
+            div(id="6AM")
                 each script in prescription
                     if script.dataValues.frequency1=='6:00 AM'
                         li Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency1}
-            div(id="7:00 AM")
+            div(id="7AM")
                 each script in prescription
                     if script.dataValues.frequency1 != null && script.dataValues.frequency1=='7:00 AM'
                         li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency1}
 
-            div(id="10:00 AM")
+            div(id="10AM")
                 each script in prescription
                         if script.dataValues.frequency2 != null && script.dataValues.frequency2=='10:00 AM'
                             li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency2}
-            div(id="11:00 AM")
+            div(id="11AM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='11:00 AM'
                         li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
-            div(id="2:00 PM")
+            div(id="2PM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='2:00 PM'
                             li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency3}
-            div(id="4:00 PM")
+            div(id="4PM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='4:00 PM'
                         li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
-            div(id="6:00 PM")
+            div(id="6PM")
                 each script in prescription
                     if script.dataValues.frequency4 != null && script.dataValues.frequency4=='6:00 PM'
                         li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency4}
-            div(id="10:00 PM")
+            div(id="10 PM")
                 each script in prescription
                     if script.dataValues.frequency5 != null && script.dataValues.frequency5=='10:00 PM'
                         li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency5}
-            div(id="11:00 PM")
+            div(id="11PM")
                 each script in prescription
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='11:00 PM'
                         li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
 
+    script
+        include ../public/later/later.min.js
+        include ../node_modules/jquery/dist/jquery.js
+
+    script.
+        //- demo mode
+        var sched2AM = later.parse.recur().every(1).minute(),
+            t = later.setInterval(talkToMe2AM, sched2AM),
+            count = 5;
+
+           function talkToMe2AM(){
+                var text = $('#2AM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('2AM finished');
+                };
+                 speechSynthesis.speak(msg);
+                 count--;
+                if(count <= 0) {
+                t.clear();
+                }
+
+                }
+
+
+
+            //- function test() {
+            //-     console.log(new Date());
+            //-     count--;
+            //-     if(count <= 0) {
+            //-     t.clear();
+            //-     }
+            //- }
 
 
 
