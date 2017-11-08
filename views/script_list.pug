@@ -12,81 +12,155 @@ block content
             div(id="2AM")
                 each script in prescription
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='2:00 AM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
-
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
+            br
             div(id="6AM")
                 each script in prescription
                     if script.dataValues.frequency1=='6:00 AM'
-                        li Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency1}
+                        please Take  #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency1}
+            br
             div(id="7AM")
                 each script in prescription
                     if script.dataValues.frequency1 != null && script.dataValues.frequency1=='7:00 AM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency1}
-
+                        please Take  #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency1}
+                        br
+            br
             div(id="10AM")
                 each script in prescription
-                        if script.dataValues.frequency2 != null && script.dataValues.frequency2=='10:00 AM'
-                            li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency2}
+                    if script.dataValues.frequency2 !== null && script.dataValues.frequency2=='10:00 AM'
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency2}
+                        br
+            br
             div(id="11AM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='11:00 AM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
+                        br
+            br
             div(id="2PM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='2:00 PM'
-                            li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency3}
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency3}
+                        br
+            br
             div(id="4PM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='4:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
+                        br
+            br
             div(id="6PM")
                 each script in prescription
                     if script.dataValues.frequency4 != null && script.dataValues.frequency4=='6:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency4}
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency4}
+            br
             div(id="10 PM")
                 each script in prescription
                     if script.dataValues.frequency5 != null && script.dataValues.frequency5=='10:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency5}
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency5}
+                        br
+            br
             div(id="11PM")
                 each script in prescription
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='11:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
-
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
+                        br
     script
         include ../public/later/later.min.js
         include ../node_modules/jquery/dist/jquery.js
 
     script.
         //- demo mode
-        var sched2AM = later.parse.recur().every(1).minute(),
-            t = later.setInterval(talkToMe2AM, sched2AM),
-            count = 5;
+        //- var sched2AM = later.parse.recur().every(1).minute(),
+        //-     t = later.setInterval(talkToMe2AM, sched2AM),
+        //-     count = 5;
 
-           function talkToMe2AM(){
-                var text = $('#2AM').html();
+        //-    function talkToMe2AM(){
+        //-         var text = $('#2AM').html();
+        //-         var msg = new SpeechSynthesisUtterance();
+        //-         msg.text = text;
+
+        //-         msg.onend = function(e) {
+        //-         console.log('2AM finished');
+        //-         };
+        //-          speechSynthesis.speak(msg);
+        //-          count--;
+        //-         if(count <= 0) {
+        //-         t.clear();
+        //-         }
+
+        //-         }
+
+        var schedSample = later.parse.recur().on(16).hour();
+        var t = later.setInterval(talkToMe6AM, schedSample)
+        function talkToMe6AM(){
+            var text = $('#6AM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+
+            msg.onend = function(e) {
+            console.log('6AM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
+
+        //reminder for 6AM Meds
+        var sched6AM = later.parse.recur().on(6).hour();
+        var t = later.setInterval(talkToMe6AM, sched6AM)
+        function talkToMe6AM(){
+            var text = $('#6AM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+
+            msg.onend = function(e) {
+            console.log('6AM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
+
+        //reminder for 7AM meds
+        var sched7AM = later.parse.recur().on(7).hour();
+        var t = later.setInterval(talkToMe7AM, sched7AM)
+            function talkToMe7AM(){
+                var text = $('#7AM').html();
                 var msg = new SpeechSynthesisUtterance();
                 msg.text = text;
 
                 msg.onend = function(e) {
-                console.log('2AM finished');
+                console.log('7AM finished');
                 };
                  speechSynthesis.speak(msg);
-                 count--;
-                if(count <= 0) {
-                t.clear();
-                }
+            }
 
-                }
+        //reminder for 10 AM
+        var sched10AM = later.parse.recur().on(10).hour();
+        var t = later.setInterval(talkToMe10AM, sched10AM)
+            function talkToMe10AM(){
+                var text = $('#10AM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('10AM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+
+        //reminder for 11AM
+        var sched11AM = later.parse.recur().on(11).hour();
+        var t = later.setInterval(talkToMe11AM, sched11AM)
+            function talkToMe11AM(){
+                var text = $('#11AM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('11AM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
 
 
-
-            //- function test() {
-            //-     console.log(new Date());
-            //-     count--;
-            //-     if(count <= 0) {
-            //-     t.clear();
-            //-     }
-            //- }
 
 
 
