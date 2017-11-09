@@ -62,15 +62,6 @@ This will get the project up and working on your local machine.
 
 - To see a list of your prescriptions by time and get voice reminders of what to take when, click "See my Prescriptions" on the main menu page.
 
-## A Preview:
-
-
-![ScreenShot](https://www.dropbox.com/s/gpfzlbgq4d88upo/Screenshot%202017-11-09%2011.55.14.jpg?dl=0)
-
-![ScreenShot](https://www.dropbox.com/s/fhfm73ljbktxhrs/Screenshot%202017-11-09%2013.54.30.jpg?dl=0)
-
-![ScreenShot](https://www.dropbox.com/s/6yj1uonavzuer27/Screenshot%202017-11-09%2013.45.04.jpg?dl=0)
-
 
 ## So, what will version 2 look like?
 - I hope to add the ability for users to receive text message reminders to take their medications on schedule, regardless of whether they are logged into the app.  Currently the application only gives reminders if the user is logged in and on the "See My Prescriptions" page.
