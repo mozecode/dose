@@ -28,6 +28,12 @@ div.btnContainer {
     font-size:1.5em;
 }
 
+div.copyright {
+    color:#007bff;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+}
+
 /* Navigation */
 
 nav.navbar.navbar-expand-sm.navbar-light.bg-light {
@@ -215,6 +221,12 @@ div.account, div.list{
 h5.alert{
     color:red;
     font-size:1.2em;
+}
+
+div#disclaimer p.small {
+    font-size:xx-small;
+    font-weight: bold;
+    text-align: center;
 }
 
 @media (min-width:900px) {
