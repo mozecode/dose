@@ -66,9 +66,11 @@ This will get the project up and working on your local machine.
 ## So, what will version 2 look like?
 - I hope to add the ability for users to receive text message reminders to take their medications on schedule, regardless of whether they are logged into the app.  Currently the application only gives reminders if the user is logged in and on the "See My Prescriptions" page.
 
-- I would like to add the ability for users to call their pharmacist through the application to discuss medicines
+- I would like to add the ability for users to call their pharmacist through the application to discuss medicines, side effects, etc.
 
 - I would like to find a more comprehensive API to use for including topical, liquid, and other medications and change the user interface accordingly, depending on medication types.
+
+- I would also like to add alerts if a user enters a medication that they are allergic to, so that they can discuss the issue with their doctor or pharmacist. Currently the app stores allergy information, but since often people are allergic to a whole class of drugs, I need to find an API that I could use to compare entered prescriptions with all drugs in the class of drugs the patient is allergic to in order to make sure that the app functions properly.
 
 ## The Obligatory Disclaimers
 
