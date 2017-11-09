@@ -66,12 +66,30 @@ This will get the project up and working on your local machine.
 ## So, what will version 2 look like?
 - I hope to add the ability for users to receive text message reminders to take their medications on schedule, regardless of whether they are logged into the app.  Currently the application only gives reminders if the user is logged in and on the "See My Prescriptions" page.
 
-- I would like to add the ability for users to call their pharmacist through the application to discuss medicines
+- I would like to add the ability for users to call their pharmacist through the application to discuss medicines, side effects, etc.
 
 - I would like to find a more comprehensive API to use for including topical, liquid, and other medications and change the user interface accordingly, depending on medication types.
+
+- I would also like to add alerts if a user enters a medication that they are allergic to, so that they can discuss the issue with their doctor or pharmacist. Currently the app stores allergy information, but since often people are allergic to a whole class of drugs, I need to find an API that I could use to compare entered prescriptions with all drugs in the class of drugs the patient is allergic to in order to make sure that the app functions properly.
+
+
+## THANK YOUs!!!
+I need to say a great big THANK YOU to my amazing teachers, my fellow students, and Nashville Software School.
+
+To Joe, the Dumbledore to my Luna Lovegood, thank you SO MUCH for taking us from ordinary muggles to web wizards in a little more than 6 months.  Your dedication and drive shaped us and will continue to guide us in our new lives.  You're such a gifted teacher.
+
+To Jufe, our Node guru, thank you for your keen eyes, your persistence, and for some of the most creative thinking about programming I've seen yet.
+
+To Greg, our oasis of quiet calm in the midst of all this delightful insanity, thank you so much for helping each of us find that well of strength inside ourselves to draw on when we need it.  That, and your musical suggestions are completely awesome to work to....
+
+I am so grateful for this experience and for the new world that Nashville Software School has opened up for me and my classmates.
 
 ## The Obligatory Disclaimers
 
 This application was created as a student project, and is not intended to replace the advice of your medical doctor or pharmacist.  I am not responsible for medication errors, allergic reactions, drug interactions or injury resulting from use of this application, I am simply trying to help give people a tool to manage their own medicines more efficiently and remember to take them on time.  Use at your own risk.
 
 "This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product."
+
+## About the Author
+
+Greta Moseley is a graduate of Nashville Software School's Cohort 20.  A former Latin Teacher and Project Manager in the construction field, she is now a Software Engineer.  Contact her at greta.moseley@gmail.com.
