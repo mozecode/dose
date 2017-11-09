@@ -223,7 +223,7 @@ block content
 
              //reminder for 10PM
         later.date.localTime()
-        var cron10PM = '05 22 ? * *';
+        var cron10PM = '0 22 ? * *';
         var s10PM = later.parse.cron(cron10PM);
         time10P= later.setInterval(talkToMe10PM, s10PM);
             function talkToMe10PM(){
