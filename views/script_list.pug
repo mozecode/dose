@@ -5,21 +5,23 @@ block content
         h2 Leave this page open to get reminders for when to take your medicine.  This page will talk to you!
         br
         if allergy
-            ul #{person.first_name}'s Allergies:
+            h4 #{person.first_name}'s Allergies:
                 each all in allergy
-                    li #{all.dataValues.drug_name}
+                    h5(class="alert") #{all.dataValues.drug_name}
             br
 
-        ul #{person.first_name}'s Prescriptions:
+        h4 #{person.first_name}'s Prescriptions:
             div(id="2AM")
                 each script in prescription
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='2:00 AM'
                         please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
+                        br
             br
             div(id="6AM")
                 each script in prescription
                     if script.dataValues.frequency1=='6:00 AM'
                         please Take  #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency1}
+                        br 
             br
             div(id="7AM")
                 each script in prescription
@@ -55,6 +57,7 @@ block content
                 each script in prescription
                     if script.dataValues.frequency4 != null && script.dataValues.frequency4=='6:00 PM'
                         please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency4}
+                        br
             br
             div(id="10PM")
                 each script in prescription

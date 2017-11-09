@@ -209,3 +209,7 @@ div.account, div.list{
     padding-left:10%;
     padding-right:10%;
 }
+
+h5.alert{
+    color:red;
+}
