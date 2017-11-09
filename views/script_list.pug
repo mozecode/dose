@@ -9,49 +9,249 @@ block content
             br
 
         ul #{person.first_name}'s Prescriptions:
-            div(id="2:00 AM")
+            div(id="2AM")
                 each script in prescription
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='2:00 AM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
-
-            div(id="6:00 AM")
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
+            br
+            div(id="6AM")
                 each script in prescription
                     if script.dataValues.frequency1=='6:00 AM'
-                        li Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency1}
-            div(id="7:00 AM")
+                        please Take  #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency1}
+            br
+            div(id="7AM")
                 each script in prescription
                     if script.dataValues.frequency1 != null && script.dataValues.frequency1=='7:00 AM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency1}
-
-            div(id="10:00 AM")
+                        please Take  #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency1}
+                        br
+            br
+            div(id="10AM")
                 each script in prescription
-                        if script.dataValues.frequency2 != null && script.dataValues.frequency2=='10:00 AM'
-                            li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency2}
-            div(id="11:00 AM")
+                    if script.dataValues.frequency2 !== null && script.dataValues.frequency2=='10:00 AM'
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency2}
+                        br
+            br
+            div(id="11AM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='11:00 AM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
-            div(id="2:00 PM")
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
+                        br
+            br
+            div(id="2PM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='2:00 PM'
-                            li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency3}
-            div(id="4:00 PM")
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency3}
+                        br
+            br
+            div(id="4PM")
                 each script in prescription
                     if script.dataValues.frequency3 != null && script.dataValues.frequency3=='4:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
-            div(id="6:00 PM")
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency3}
+                        br
+            br
+            div(id="6PM")
                 each script in prescription
                     if script.dataValues.frequency4 != null && script.dataValues.frequency4=='6:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency4}
-            div(id="10:00 PM")
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency4}
+            br
+            div(id="10PM")
                 each script in prescription
                     if script.dataValues.frequency5 != null && script.dataValues.frequency5=='10:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency5}
-            div(id="11:00 PM")
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name}  at #{script.dataValues.frequency5}
+                        br
+            br
+            div(id="11PM")
                 each script in prescription
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='11:00 PM'
-                        li #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
+                        please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
+                        br
+    script
+        include ../public/later/later.min.js
+        include ../node_modules/jquery/dist/jquery.js
 
+    script.
+        //- demo mode
+        //- var sched2AM = later.parse.recur().every(1).minute(),
+        //-     t = later.setInterval(talkToMe2AM, sched2AM),
+        //-     count = 5;
+
+        //-    function talkToMe2AM(){
+        //-         var text = $('#2AM').html();
+        //-         var msg = new SpeechSynthesisUtterance();
+        //-         msg.text = text;
+
+        //-         msg.onend = function(e) {
+        //-         console.log('2AM finished');
+        //-         };
+        //-          speechSynthesis.speak(msg);
+        //-          count--;
+        //-         if(count <= 0) {
+        //-         t.clear();
+        //-         }
+
+        //-         }
+
+
+        //reminder for 2AM meds
+        later.date.localTime()
+        var cron2AM = '0 2 ? * *';
+        var s2AM = later.parse.cron(cron2AM);
+        time2A= later.setInterval(talkToMe2AM, s2AM);
+        function talkToMe2AM(){
+            var text = $('#2AM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+
+            msg.onend = function(e) {
+            console.log('2AM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
+
+        //reminder for 6AM meds
+        later.date.localTime()
+        var cron = '0 6 ? * *';
+        var s = later.parse.cron(cron);
+        time6A= later.setInterval(talkToMe6AM, s);
+        function talkToMe6AM(){
+            var text = $('#6AM').html();
+            console.log(text);
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+
+            msg.onend = function(e) {
+            console.log('6AM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
+
+
+        //reminder for 7AM meds
+        later.date.localTime()
+        var cron7AM = '0 7 ? * *';
+        var s7AM = later.parse.cron(cron7AM);
+        time7A= later.setInterval(talkToMe7AM, s7AM);
+            function talkToMe7AM(){
+                var text = $('#7AM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+                msg.onend = function(e) {
+                console.log('7AM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+
+        //reminder for 10 AM
+        later.date.localTime()
+        var cron10AM = '0 10 ? * *';
+        var s10AM = later.parse.cron(cron10AM);
+        time10A= later.setInterval(talkToMe10AM, s10AM);
+            function talkToMe10AM(){
+                var text = $('#10AM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('10AM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+
+        //reminder for 11AM
+        later.date.localTime()
+        var cron11AM = '0 11 ? * *';
+        var s11AM = later.parse.cron(cron11AM);
+        time11A= later.setInterval(talkToMe11AM, s11AM);
+            function talkToMe11AM(){
+                var text = $('#11AM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('11AM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+        
+        //reminder for 2PM
+        later.date.localTime()
+        var cron2PM = '0 14 ? * *';
+        var s2PM = later.parse.cron(cron2PM);
+        time2P= later.setInterval(talkToMe2PM, s2PM);
+            function talkToMe2PM(){
+                var text = $('#2PM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('2PM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+
+          //reminder for 4PM
+        later.date.localTime()
+        var cron4PM = '0 16 ? * *';
+        var s4PM = later.parse.cron(cron4PM);
+        time4P= later.setInterval(talkToMe4PM, s4PM);
+            function talkToMe4PM(){
+                var text = $('#4PM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('4PM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+
+             //reminder for 6PM
+        later.date.localTime()
+        var cron6PM = '0 18 ? * *';
+        var s6PM = later.parse.cron(cron6PM);
+        time6P= later.setInterval(talkToMe6PM, s6PM);
+            function talkToMe6PM(){
+                var text = $('#6PM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('6PM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+
+             //reminder for 10PM
+        later.date.localTime()
+        var cron10PM = '0 22 ? * *';
+        var s10PM = later.parse.cron(cron10PM);
+        time10P= later.setInterval(talkToMe10PM, s10PM);
+            function talkToMe10PM(){
+                var text = $('#10PM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('10PM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
+
+            //reminder for 11PM
+        later.date.localTime()
+        var cron11PM = '0 23 ? * *';
+        var s11PM = later.parse.cron(cron11PM);
+        time11P= later.setInterval(talkToMe11PM, s11PM);
+            function talkToMe11PM(){
+                var text = $('#11PM').html();
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+
+                msg.onend = function(e) {
+                console.log('11PM finished');
+                };
+                 speechSynthesis.speak(msg);
+            }
 
 
 
