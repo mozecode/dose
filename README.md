@@ -47,8 +47,6 @@ This will get the project up and working on your local machine.
 
 - [rxNorm API](https://mor.nlm.nih.gov/download/rxnav/RxNormAPIs.html#) courtesy of the National Library of Medicine
 
-"This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product."
-
 ## How to use 'dose'
 
 'dose' can be used on any device, from phone to tablet to desktop.
@@ -81,6 +79,8 @@ This will get the project up and working on your local machine.
 
 - I would like to find a more comprehensive API to use for including topical, liquid, and other medications and change the user interface accordingly, depending on medication types.
 
-## The Obligatory Disclaimer
+## The Obligatory Disclaimers
 
-This application was created as a student project, and is not intended to replace the advice of your medical doctor or pharmacist.  I am not responsible for medication errors resulting from use of this application, I am simply trying to help give people a tool to manage their own medicines more efficiently and remember to take them on time.  Use at your own risk.
+This application was created as a student project, and is not intended to replace the advice of your medical doctor or pharmacist.  I am not responsible for medication errors, allergic reactions, drug interactions or injury resulting from use of this application, I am simply trying to help give people a tool to manage their own medicines more efficiently and remember to take them on time.  Use at your own risk.
+
+"This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product."

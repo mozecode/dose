@@ -70,6 +70,12 @@ block content
                     if script.dataValues.frequency6 != null && script.dataValues.frequency6=='11:00 PM'
                         please Take #{script.dataValues.dose} of your #{script.dataValues.script_name} at #{script.dataValues.frequency6}
                         br
+            br
+            br
+            div(id="disclaimer")
+                p(class="small") This application was created as a student project, and is not intended to replace the advice of your medical doctor or pharmacist.  
+                p(class="small") I am not responsible for medication errors, allergic reactions, drug interactions or injury resulting from use of this application, I am simply trying to help give people a tool to manage their own medicines more efficiently and remember to take them on time.  
+                p(class="small") Use at your own risk.
     script
         include ../public/later/later.min.js
         include ../node_modules/jquery/dist/jquery.js
