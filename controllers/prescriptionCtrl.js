@@ -19,8 +19,6 @@ module.exports.getAllUserScripts = (req, res, next) => {
         })
         .then((oneuser) => {
             let person = oneuser[0].dataValues
-
-            console.log("person?", person.prescriptions)
                 res.render('script_list', {//render list of user's scripts organized by time to take?
                 person,                 //use case/switch statement in pug?
                 allergy: person.allergies, //get user allergies
@@ -44,7 +42,6 @@ module.exports.getScripts=(req, res, next)=>{   //get all scripts to render as c
             }
         })
         .then((oneuser) => {
-            console.log("What do we get from getscripts oneuser?", oneuser)
             let person = oneuser[0].dataValues
             res.render('updateList', {
                 prescription: person.prescriptions
@@ -59,7 +56,7 @@ module.exports.getScriptDetails=(req, res, next)=>{
     //find prescription by id
     const { prescription } = req.app.get('models');
     prescription.findById(parseInt(req.params.id), { raw: true })
-    .then((script)=>{//why does putting anything else here, even a console log break it?
+    .then((script)=>{
         res.render('updateOneScript', {script})//sending script values to prefill the update one script pug form
     })
     .catch((err)=>{
@@ -134,7 +131,7 @@ prescription.findAll(
     })
     .then((oneScript) => {
         if(oneScript.length>0){
-            console.log("sorry, that prescription already exists in the database");
+            console.log("Sorry, that prescription already exists in the database");
             res.redirect('welcome');
         }
         if (oneScript.length==0){ //if no match, add to the db
@@ -177,17 +174,17 @@ module.exports.updateScript = (req, res, next) => {
             doctor_name: req.body.doctor_name,
             pharmacy_name: req.body.pharmacy_name,
             pharmacy_phone: req.body.pharmacy_phone
-        }, {
-            where: {
-                id: req.params.id //gets this id from the route
-            }
-        })
-        .then((result)=>{
-            res.render('welcome')  //instead redirect to where?
-        })
-        .catch((err) => {
-            next(err);
-        });
+    }, {
+        where: {
+            id: req.params.id //gets this id from the route
+        }
+    })
+    .then((result)=>{
+        res.render('welcome')  //instead redirect to where?
+    })
+    .catch((err) => {
+        next(err);
+    });
 };
 
 module.exports.deleteScript=(req, res, next)=>{
@@ -197,7 +194,7 @@ module.exports.deleteScript=(req, res, next)=>{
             id: req.params.id,
         }
     })
-        .then((result) => {
-            res.render('welcome');
-        })
-}
+    .then((result) => {
+        res.render('welcome');
+    })
+};
