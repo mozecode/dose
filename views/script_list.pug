@@ -81,7 +81,7 @@ block content
         include ../node_modules/jquery/dist/jquery.js
 
     script.
-        //- demo mode
+        //- demo mode- please uncomment to hear sample of the reminders
         //- var sched2AM = later.parse.recur().every(1).minute(),
         //-     t = later.setInterval(talkToMe2AM, sched2AM),
         //-     count = 5;
@@ -92,15 +92,15 @@ block content
         //-         msg.text = text;
 
         //-         msg.onend = function(e) {
-        //-         console.log('2AM finished');
+        //-             console.log('2AM finished');
         //-         };
         //-          speechSynthesis.speak(msg);
         //-          count--;
         //-         if(count <= 0) {
-        //-         t.clear();
+        //-             t.clear();
         //-         }
 
-        //-         }
+        //-     }
 
 
         //reminder for 2AM meds
@@ -142,127 +142,127 @@ block content
         var cron7AM = '0 7 ? * *';
         var s7AM = later.parse.cron(cron7AM);
         time7A= later.setInterval(talkToMe7AM, s7AM);
-            function talkToMe7AM(){
-                var text = $('#7AM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
-                msg.onend = function(e) {
-                console.log('7AM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
+        function talkToMe7AM(){
+            var text = $('#7AM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+            msg.onend = function(e) {
+            console.log('7AM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
 
         //reminder for 10 AM
         later.date.localTime()
         var cron10AM = '0 10 ? * *';
         var s10AM = later.parse.cron(cron10AM);
         time10A= later.setInterval(talkToMe10AM, s10AM);
-            function talkToMe10AM(){
-                var text = $('#10AM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
+        function talkToMe10AM(){
+            var text = $('#10AM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
 
-                msg.onend = function(e) {
-                console.log('10AM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
+            msg.onend = function(e) {
+            console.log('10AM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
 
         //reminder for 11AM
         later.date.localTime()
         var cron11AM = '0 11 ? * *';
         var s11AM = later.parse.cron(cron11AM);
         time11A= later.setInterval(talkToMe11AM, s11AM);
-            function talkToMe11AM(){
-                var text = $('#11AM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
+        function talkToMe11AM(){
+            var text = $('#11AM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
 
-                msg.onend = function(e) {
-                console.log('11AM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
-        
+            msg.onend = function(e) {
+            console.log('11AM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
+
         //reminder for 2PM
         later.date.localTime()
         var cron2PM = '0 14 ? * *';
         var s2PM = later.parse.cron(cron2PM);
         time2P= later.setInterval(talkToMe2PM, s2PM);
-            function talkToMe2PM(){
-                var text = $('#2PM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
+        function talkToMe2PM(){
+            var text = $('#2PM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
 
-                msg.onend = function(e) {
-                console.log('2PM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
+            msg.onend = function(e) {
+            console.log('2PM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
 
           //reminder for 4PM
         later.date.localTime()
         var cron4PM = '0 16 ? * *';
         var s4PM = later.parse.cron(cron4PM);
         time4P= later.setInterval(talkToMe4PM, s4PM);
-            function talkToMe4PM(){
-                var text = $('#4PM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
+        function talkToMe4PM(){
+            var text = $('#4PM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
 
-                msg.onend = function(e) {
-                console.log('4PM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
+            msg.onend = function(e) {
+            console.log('4PM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
 
              //reminder for 6PM
         later.date.localTime()
         var cron6PM = '0 18 ? * *';
         var s6PM = later.parse.cron(cron6PM);
         time6P= later.setInterval(talkToMe6PM, s6PM);
-            function talkToMe6PM(){
-                var text = $('#6PM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
+        function talkToMe6PM(){
+            var text = $('#6PM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
 
-                msg.onend = function(e) {
-                console.log('6PM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
+            msg.onend = function(e) {
+            console.log('6PM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
 
              //reminder for 10PM
         later.date.localTime()
         var cron10PM = '0 22 ? * *';
         var s10PM = later.parse.cron(cron10PM);
         time10P= later.setInterval(talkToMe10PM, s10PM);
-            function talkToMe10PM(){
-                var text = $('#10PM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
+        function talkToMe10PM(){
+            var text = $('#10PM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
 
-                msg.onend = function(e) {
-                console.log('10PM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
+            msg.onend = function(e) {
+            console.log('10PM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
 
             //reminder for 11PM
         later.date.localTime()
         var cron11PM = '0 23 ? * *';
         var s11PM = later.parse.cron(cron11PM);
         time11P= later.setInterval(talkToMe11PM, s11PM);
-            function talkToMe11PM(){
-                var text = $('#11PM').html();
-                var msg = new SpeechSynthesisUtterance();
-                msg.text = text;
+        function talkToMe11PM(){
+            var text = $('#11PM').html();
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = text;
 
-                msg.onend = function(e) {
-                console.log('11PM finished');
-                };
-                 speechSynthesis.speak(msg);
-            }
+            msg.onend = function(e) {
+            console.log('11PM finished');
+            };
+                speechSynthesis.speak(msg);
+        }
 
 
 
