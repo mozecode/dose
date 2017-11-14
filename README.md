@@ -15,7 +15,9 @@ This will get the project up and working on your local machine.
 
 - Then run ```npm install``` to install all of the dependencies listed below.
 
-- Please contact me at greta.moseley@gmail.com for information about how to set up the .env and config files that are gitignored in this project.  The APIs used in the project are open, so you won't need any API keys.
+- Be sure that nodemon is installed as well with ```npm install nodemon```.
+
+- Please contact me at greta.moseley@gmail.com for information about how to set up the .env and config files that are gitignored in this project, or if you have any other questions.  The APIs used in the project are open, so you won't need any API keys.
 
 - To set up the database, run ```sequelize db:migrate```.
 
@@ -76,13 +78,18 @@ This will get the project up and working on your local machine.
 ## THANK YOUs!!!
 I need to say a great big THANK YOU to my amazing teachers, my fellow students, and Nashville Software School.
 
-To Joe, the Dumbledore to my Luna Lovegood, thank you SO MUCH for taking us from ordinary muggles to web wizards in a little more than 6 months.  Your dedication and drive shaped us and will continue to guide us in our new lives.  You're such a gifted teacher.
+To Joe, the Dumbledore to my Loony Lovegood, thank you SO MUCH for taking us from ordinary muggles to web wizards in a little more than 6 months.  Your dedication and drive shaped us and will continue to guide us in our new lives.  You're such a gifted teacher.
 
 To Jufe, our Node guru, thank you for your keen eyes, your persistence, and for some of the most creative thinking about programming I've seen yet.
 
 To Greg, our oasis of quiet calm in the midst of all this delightful insanity, thank you so much for helping each of us find that well of strength inside ourselves to draw on when we need it.  That, and your musical suggestions are completely awesome to work to....
 
 I am so grateful for this experience and for the new world that Nashville Software School has opened up for me and my classmates.
+
+
+## License Information
+
+[CC BY-NC-ND License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ## The Obligatory Disclaimers
 

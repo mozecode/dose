@@ -1,19 +1,12 @@
 'use strict';
 
-//getUserAllergies 
-
-
 //renderCreateAllergyForm
 module.exports.renderCreateAllergyForm = (req, res, next)=>{
     res.render('createAllergy', {});
-}
-
+};
 
 //postAllergy
-
 module.exports.postAllergy = (req, res, next) => {
-
-    //put in duplication protection with a get
     const { allergy } = req.app.get('models');
     var flash = req.flash()
     allergy.create({
@@ -27,7 +20,6 @@ module.exports.postAllergy = (req, res, next) => {
     })
     .catch((err) => {
         res.status(500).json(err)
-    })
-
+    });
     //success message and redirect back until user clicks on back to main menu
-}
+};

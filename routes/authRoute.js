@@ -27,7 +27,7 @@ router.post('/logout', logout);
 // the controller's 'welcome' method. 'isAuthenticated' is added to the request obj
 // If there is a user, then all is well and we call `next()` to move on to the next
 // middleware function ( welcome() ). If not, take 'em back to the login page'
-// by passport. Coolness
+// by passport.
 // NOTE that we don't need to export this function. Why?
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
